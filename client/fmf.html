@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>FoundMyFitness Animator</title>
+	<link rel="stylesheet" type="text/css" href="fmf.css">
+	<script type="text/javascript" src="CSInterface.js"></script>
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="https://unpkg.com/vanilla-picker@2"></script>
+</head>
+<body class="">
+	<div id="error-bar"></div>
+
+	<div class="tab main active">
+		<h1 id="layer-name"></h1>
+		<div id="buttons">
+			<div class="fullscreen">
+				<button id="fullscreen-in">In</button>
+				<button id="fullscreen-both">Fullscreen</button>
+				<button id="fullscreen-out">Out</button>
+			</div>
+			<div class="splitscreen">
+				<button id="splitscreen-in">In</button>
+				<button id="splitscreen-both">Splitscreen</button>
+				<button id="splitscreen-out">Out</button>
+			</div>
+			<div class="slide">
+				<button id="slide-in">In</button>
+				<button id="slide-both">Slide</button>
+				<button id="slide-out">Out</button>
+			</div>
+			<div class="transition">
+				<button id="slide-transition">Slide Transition</button>
+			</div>
+		</div>
+		<div class="erase">
+			<button id="erase-transitions">Delete Transitions</button>
+		</div>
+	</div>
+
+	<footer>
+		<button id="reload-button" class="ui-icon ui-icon-power">Restart</button>
+		<button id="smart-toggle" class="ui-icon ui-icon-auto">Auto</button>
+		<button id="single-fetch" class="ui-icon ui-icon-reload">Single Fetch</button>
+	</footer>
+
+	<script type="text/javascript" src="keyCodes.js"></script>
+	<script type="text/javascript" src="fmf.js"></script>
+</body>
+</html>

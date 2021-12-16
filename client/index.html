@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>NF Animation Assistant</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="CSInterface.js"></script>
+	<!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+	<script src="https://unpkg.com/vanilla-picker@2"></script>
+</head>
+<body class="">
+	<div id="error-bar"></div>
+
+	<div class="tab main active">
+
+		<div id="annotation-panel" class="transient-panel">
+			<div id="annotation-display">
+				<p class='welcome-message'>When in a page comp, click 'Manually Fetch Annotations' to load the PDF annotations for that file. For automatic fetching, click the 'toggle smart updates' button.</p>
+			</div>
+		</div>
+
+		<div id="layout-panel" class="transient-panel">
+			<div id="layout-title" class="panel-title">Animation Layout</div>
+			<div class="active-item">
+				<div class="item-name"></div>
+				<div class="item-info"></div>
+				<div class="item-control">
+					<button class="refresh-tree">Refresh</button>
+					<button class="shrink-page disabled">Shrink Page</button>
+					<button class="grow-page disabled">Grow Page</button>
+					<button class="re-anchor disabled">Re-Anchor</button>
+					<button class="end-element disabled">End Element</button>
+				</div>
+			</div>
+			<div id="selector">
+				<ul id="selector-list"></ul>
+			</div>
+			<div class="selector-buttons">
+				<button class="fullscreen-title disabled">Fullscreen Title</button>
+				<button class="add-small disabled">Add Small</button>
+				<button class="expose disabled">Expose</button>
+				<button class="expand disabled">Expand</button>
+				<button class="switch-to-page disabled">Switch to Page</button>
+				<button class="bubble-up disabled">Bubble HL</button>
+			</div>
+		</div>
+
+		<!-- <div id="transition-panel">
+			<div id="in-transition" class="active transition">
+				<div class="label">In</div>
+				<div class="transition-menu">
+					<div class="nf-fade">Fade</div>
+					<div class="nf-slide">Slide</div>
+					<div class="nf-fade-scale">Fade & Scale</div>
+					<div class="clear">Clear</div>
+				</div>
+			</div>
+			<div id="layer-animations"></div>
+			<div id="out-transition" class="active transition">
+				<div class="label">Out</div>
+				<div class="transition-menu">
+					<div class="nf-fade">Fade</div>
+					<div class="nf-slide">Slide</div>
+					<div class="nf-fade-scale">Fade & Scale</div>
+					<div class="clear">Clear</div>
+				</div>
+			</div>
+		</div> -->
+
+		<div id="layer-controls">
+			<div id="blend-modes">
+				<button class="blend-button">Blend Mode</button>
+				<div id="blend-menu" class="menu">
+					<div id="blend-normal-button" class="choice">Normal</div>
+					<div id="blend-overlay-button" class="choice">Overlay</div>
+					<div id="blend-multiply-button" class="choice">Multiply</div>
+					<div id="blend-screen-button" class="choice">Screen</div>
+				</div>
+			</div>
+			<div id="gaussy-controls">
+				<button class="gaussy-button">Gaussy</button>
+			</div>
+			<div id="emphasis-controls">
+				<button class="emphasizer-button">Emphasizer</button>
+			</div>
+			<div id="browser-controls">
+				<button class="browser-button">Browsify</button>
+			</div>
+		</div>
+
+		<div id="emphasizer-panel" class="transient-panel">
+			<div id="emphasis-title" class="panel-title"></div>
+			<ul id="emphasis-list">
+			</ul>
+			<div class="color-container">
+				<div class="color-field"></div>
+			</div>
+			<div class="slider-container">
+
+				<div class="thickness input-container">
+					<label for="thickness-slider">Thickness</label>
+					<input type="range" min="1" max="150" value="75" class="slider" id="thickness-slider" />
+					<span class="value">50</span><span class="units">px</span>
+				</div>
+
+				<div class="duration input-container">
+					<label for="duration-slider">Duration</label>
+					<input type="range" min="1" max="100" value="50" class="slider" id="duration-slider" />
+					<span class="value">50</span><span class="units">s</span>
+				</div>
+
+				<div class="lag input-container">
+					<label for="lag-slider">Lag</label>
+					<input type="range" min="1" max="100" value="50" class="slider" id="lag-slider" />
+					<span class="value">50</span><span class="units">s</span>
+				</div>
+			</div>
+			<div class="buttons">
+				<button class="apply-to-all">Apply to All</button>
+				<button class="duplicate">Duplicate</button>
+				<button class="select-target">Find Target</button>
+				<button class="apply-to-all">New</button>
+			</div>
+		</div>
+
+		<div id="bottom-button-bar">
+			<div class="group">
+				<button id="convert-shape" class="ui-icon ui-icon-shape">Convert Shape</button>
+				<button id="toggle-guides" class="ui-icon ui-icon-guides">Toggle Guides</button>
+				<button id="classic-highlight" class="ui-icon ui-icon-highlight">Classic Highlighter</button>
+				<button id="tool-panel">Old Tool Panel</button>
+				<button id="settings-tab-button">Settings</button>
+			</div>
+			<div class="group shy">
+				<button id="shy-show-all">Show All</button>
+				<button id="shy-focus-pdf">PDF Focus</button>
+				<button id="shy-focus-active">Active Focus</button>
+			</div>
+			<p id="tempDisplayText"></p>
+		</div>
+	</div>
+
+	<div class="tab tool-panel">
+		<h2>NF Tool Panel</h2>
+		<div id="tool-panel-tools">
+		</div>
+		<button id="run-tool" class="">Run Tool</button>
+		<button id="close-tool-panel">Back to Layout</button>
+	</div>
+
+	<div class="tab settings">
+		<h2>Settings</h2>
+		<div id="settings-options">
+		</div>
+		<button id="save-settings" class="">Save Changes</button>
+		<button id="reset-changes" class="">Reset Changes</button>
+		<button id="restore-all-settings" class="">Restore to Defaults</button>
+		<button id="close-settings-panel">Back to Layout</button>
+	</div>
+
+	<footer>
+		<button id="reload-button" class="ui-icon ui-icon-power">Restart</button>
+		<button id="smart-toggle" class="ui-icon ui-icon-auto">Auto</button>
+		<button id="single-fetch" class="ui-icon ui-icon-reload">Single Fetch</button>
+	</footer>
+
+	<script type="text/javascript" src="keyCodes.js"></script>
+	<script type="text/javascript" src="index.js"></script>
+</body>
+</html>

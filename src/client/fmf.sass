@@ -1,0 +1,592 @@
+$bgColor: #272727
+$darkbgColor: #1c1c1c
+$midbgColor: #3d3d3d
+$lightbgColor: #4f4f4f
+$lighterbgColor: #757575
+
+$lavender: #7e6282
+$lavender-up: #9e7ca3
+$lavender-down: #4d3352
+
+$button-blue: #58c
+$button-blue-up: #71a3e3
+
+$annot-highlight-yellow: #facd5a
+$annot-highlight-green: #7dc768
+$annot-highlight-pink: #fb5c89
+$annot-highlight-purple: #c885da
+$annot-highlight-blue: #69b0f1
+$annot-yellow: #ffff00
+$annot-red: #ff0000
+$annot-brown: #aa7942
+$annot-blue: #0088ff
+$annot-orange: #ff8800
+$annot-purple: #942192
+$annot-pink: #ff40ff
+$annot-black: #000000
+$annot-grey: #919191
+$annot-white: #ffffff
+
+$light-font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+$regular-font: "HelveticaNeue-Regular", "Helvetica Neue Regular", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+$medium-font: "HelveticaNeue-Medium", "Helvetica Neue Medium", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+
+html
+  height: 100%
+  margin: 0
+
+body
+  font-family: $light-font
+  background-color: $bgColor
+  color: white
+  height: 100%
+  margin: 0
+  padding: 10px
+  overflow: hidden
+
+  &.no-layer
+    #tab-no-layer
+      color: red
+  &.NFLayer
+    #tab-misc-layer
+      color: red
+  &.NFEmphasisLayer
+    #emphasizer-panel
+      display: block
+
+    &.NFPartComp
+      #layout-panel
+        display: none
+  &.NFPageLayer
+    #tab-page-layer
+      color: red
+  &.NFPageComp
+    #tab-page-comp
+      color: red
+    #annotation-panel
+      display: block
+    #annotation-display
+      display: block
+  &.NFPartComp
+    #layout-panel
+      display: block
+    #tab-part-comp
+      color: red
+  &.NFHighlightLayer
+    #tab-highlight-layer
+      color: red
+  &.NFHighlightControlLayer
+    #tab-highlight-control-layer
+      color: red
+  &.NFComp
+    #tab-misc-comp
+      color: red
+
+#error-bar
+  display: none
+  width: 100%
+  padding: 15px
+  background: #8c3333
+  font-weight: bold
+
+#buttons
+
+  > div button:first-child
+    border-radius: 50px 0 0 0
+  > div button:last-child
+    border-radius: 0 50px 0 0
+  > div button:only-child
+    border-radius: 50px 50px 0 0
+
+  button
+    width: 80px
+    height: 40px
+    font-size: 11px
+
+    &#slide-transition
+      width: 250px
+
+#erase-transitions
+  width: auto
+  margin-top: 20px
+  border-radius: 0
+
+// #tab-bar
+//   display: none
+.tab
+  display: none
+  height: 100%
+
+  &.active
+    display: block
+
+#tool-panel-tools
+  height: 70%
+  overflow: scroll
+  padding: 15px
+  background: $midbgColor
+
+  ul
+    padding: 0 0 0 10px
+    list-style-type: none
+
+    li.active
+      background-color: $darkbgColor
+      font-family: $medium-font
+      cursor: pointer
+
+.transient-panel
+  display: none
+  width: auto
+  height: auto
+  padding: 10px
+  margin: 10px
+  background: $midbgColor
+  color: #aaaaaa
+
+  .panel-title
+    font-weight: bold
+    color: #cccccc
+
+#layout-panel
+  display: none
+
+  .active-item
+    font-family: $regular-font
+
+    // .item-control
+    //   button
+    //     display: none
+
+  #selector
+    max-height: 200px
+    overflow: scroll
+    font-family: $regular-font
+
+    #selector-list
+
+      & > li
+        // vertical-align: top
+        // display: inline-block
+        padding: 5px
+        margin-bottom: 10px
+        margin-right: 10px
+        font-size: 20px
+        font-family: $medium-font
+        background-color: #4d4d4d
+
+        &.collapsed
+          ul
+            display: none
+
+        &:last-child
+          margin-bottom: 0
+
+        & > span
+          display: inline-block
+          padding: 3px
+          min-width: 25px
+          height: 25px
+          border: 1px solid #f0d286
+          color: #f0d286
+          border-radius: 30px
+          text-align: center
+
+        & > ul
+          & > li
+            padding: 5px
+            margin-bottom: 10px
+            background-color: #575757
+
+            &.active
+              & > span
+                background-color: #407369
+
+            & > span
+              font-size: 17px
+              color: #9fd4d0
+              padding: 2px
+
+            &:last-child
+              margin-bottom: 0
+
+            & > ul
+              & > li
+
+  ul
+    display: inline-block
+    font-size: 12px
+    padding: 0 0 0 10px
+    list-style-type: none
+
+    span
+      display: inline-block
+
+    li
+      cursor: pointer
+      // border: 1px red solid
+
+      span
+        vertical-align: top
+
+      &>span:hover
+        text-decoration: underline
+
+      &.active
+        font-weight: bold
+
+        li
+          font-weight: normal
+
+#annotation-display
+  display: none
+
+#emphasizer-panel
+
+  #emphasis-list
+    list-style-type: none
+    margin: 0
+    padding: 10px 0
+    font-size: 11px
+    font-weight: bold
+
+    li
+      cursor: pointer
+      padding-bottom: 4px
+
+      &.active
+       background: $lightbgColor
+
+    span
+      position: relative
+      display: inline-block
+      font-size: 16px
+      top: 0px
+      margin: 0 4px 0 5px
+
+  .slider-container
+    display: block
+    padding: 10px 0
+
+    .input-container
+
+      label
+        display: inline-block
+        width: 30%
+        font-weight: 600
+        font-size: 12px
+
+    input
+      position: relative
+      top: -3px
+      -webkit-appearance: none
+      appearance: none
+      width: auto
+      height: 6px
+      background: #888888
+      outline: none
+      opacity: 0.7
+      -webkit-transition: .2s
+      transition: opacity .2s
+
+      &::-webkit-slider-thumb
+        -webkit-appearance: none
+        appearance: none
+        width: 16px
+        height: 16px
+        border-radius: 50%
+        background: white
+        cursor: pointer
+
+  .color-container
+    padding: 2px
+    display: inline-block
+    background: $lighterbgColor
+    cursor: pointer
+
+    &:hover
+      background: lighten($lighterbgColor, 10%)
+
+  .color-field
+    width: 40px
+    height: 20px
+    background: $lightbgColor
+
+    .picker_sample
+      display: none
+
+    .picker_editor
+      width: 55%
+      margin-right: 0
+
+      input
+        font-size: 10px
+        background: #383838
+        color: white
+
+    .picker_wrapper
+      width: 10em
+      background: #383838
+
+      .picker_arrow::before, .picker_arrow::after
+        background: #383838
+
+    .picker_slider
+      padding: 0.5em
+
+    .picker_done
+      margin-left: 0
+
+      button
+        font-size: 10px
+        margin: 0
+        padding: 0.3em 0.5em
+        color: grey
+
+#layer-controls
+
+  > div
+    position: relative
+    display: inline-block
+    vertical-align: bottom
+    width: 80px
+
+  button
+    display: block
+    width: 100%
+    margin-bottom: 0
+
+  .menu
+    display: none
+    position: absolute
+    background: $button-blue
+    width: 100%
+    font-size: 0.7em
+    font-weight: 600
+    z-index: 10
+
+    div
+      padding: 5px
+      cursor: pointer
+
+      &:hover
+        background: $button-blue-up
+
+#transition-panel
+  display: inline-block
+
+  > .transition
+    float: left
+    position: relative
+    cursor: pointer
+    width: 60px
+    height: 60px
+
+    .label
+      position: absolute
+      font-size: 0.8em
+      padding: 5px
+
+    &:hover
+      .transition-menu
+        display: block
+        z-index: 10
+
+  #layer-animations
+    float: left
+    height: 60px
+    width: 200px
+    background-color: $lavender
+
+  #in-transition
+    &.active
+      background: linear-gradient(-45deg,$lavender,$lavender 43px,$darkbgColor 43px,$darkbgColor 20px)
+      &:hover
+        background: linear-gradient(-45deg,$lavender-up,$lavender-up 43px,$darkbgColor 43px,$darkbgColor 20px)
+      &:active
+        background: linear-gradient(-45deg,$lavender-down,$lavender-down 43px,$darkbgColor 43px,$darkbgColor 20px)
+
+  #out-transition
+    &.active
+      background: linear-gradient(45deg,$lavender,$lavender 43px,$darkbgColor 43px,$darkbgColor 20px)
+      &:hover
+        background: linear-gradient(45deg,$lavender-up,$lavender-up 43px,$darkbgColor 43px,$darkbgColor 20px)
+      &:active
+        background: linear-gradient(45deg,$lavender-down,$lavender-down 43px,$darkbgColor 43px,$darkbgColor 20px)
+
+    .label
+      right: 0
+
+  .transition-menu
+    display: none
+    position: absolute
+    top: 0%
+    left: 0%
+    width: 100%
+    height: auto
+    padding-top: 5%
+    text-align: center
+    font-size: 0.8em
+    font-weight: 600
+    cursor: default
+    background: rgba(145, 145, 145, 0.9)
+    > div
+      cursor: pointer
+      margin: 2px
+      background: rgba(60, 60, 60, 0.4)
+      &:hover
+        background: rgba(60, 60, 60, 0.9)
+
+      //padding: 0 0 2px 0
+      // display: none
+
+footer
+  clear: both
+  position: absolute
+  bottom: 0px
+
+h1
+  font-weight: 100
+
+button
+  backface-visibility: hidden
+  outline: none
+  position: relative
+  cursor: pointer
+  display: inline-block
+  white-space: nowrap
+  background-color: $button-blue
+  border:
+    radius: 0px
+    width: 0px 0px 4px 0px
+    color: #246
+    style: solid
+  padding: 0.5em 1em 0.5em 1em
+  margin: 0 0 5px 0
+  color: #fff
+  font-size: 10px
+  font-family: Helvetica Neue
+  font-weight: 900
+  font-style: normal
+
+  &:hover
+    background-color: $button-blue-up
+  &:active
+    background-color: #3172c4
+
+  &.running
+    background-color: #b769c7
+    border-color: #591d66
+    &:hover
+      background-color: #bf83cc
+    &:active
+      background-color: #9930b0
+
+  &.disabled
+    background-color: #a6a6a6
+    border-color: #7d7d7d
+    cursor: default
+    &:hover
+      background-color: #a6a6a6
+    &:active
+      background-color: #a6a6a6
+
+  &.ui-icon
+    padding-left: 2.1em
+    background:
+      repeat: no-repeat
+      size: 1.2em
+      position: 5px center
+
+    &.ui-icon-power
+      background-image: url(assets/power.png)
+    &.ui-icon-reload
+      background-image: url(assets/reload.png)
+    &.ui-icon-shape
+      background-image: url(assets/shape.png)
+    &.ui-icon-highlight
+      background-image: url(assets/highlight.png)
+    &.ui-icon-guides
+      background-image: url(assets/guides.png)
+    &.ui-icon-auto
+      padding-left: 2.2em
+      background:
+        image: url(assets/auto.png)
+        size: 1.5em
+
+li.annotation-item
+  padding: 5px
+  margin-bottom: 5px
+  color: black
+  list-style-type: none
+  cursor: pointer
+
+  .clean-name
+    font-family: $medium-font
+    margin-bottom: 4px
+  .highlight-text
+    font-family: $regular-font
+    font-size: 10px
+
+  &.highlight-yellow
+    background-color: $annot-highlight-yellow
+    &:hover
+      background-color: lighten($annot-highlight-yellow, 20)
+  &.highlight-green
+    background-color: $annot-highlight-green
+    &:hover
+      background-color: lighten($annot-highlight-green, 20)
+  &.highlight-pink
+    background-color: $annot-highlight-pink
+    &:hover
+      background-color: lighten($annot-highlight-pink, 20)
+  &.highlight-purple
+    background-color: $annot-highlight-purple
+    &:hover
+      background-color: lighten($annot-highlight-purple, 20)
+  &.highlight-blue
+    background-color: $annot-highlight-blue
+    &:hover
+      background-color: lighten($annot-highlight-blue, 20)
+  &.yellow
+    background-color: $annot-yellow
+    &:hover
+      background-color: lighten($annot-yellow, 20)
+  &.red
+    background-color: $annot-red
+    &:hover
+      background-color: lighten($annot-red, 20)
+  &.brown
+    background-color: $annot-brown
+    &:hover
+      background-color: lighten($annot-brown, 20)
+  &.blue
+    background-color: $annot-blue
+    &:hover
+      background-color: lighten($annot-blue, 20)
+  &.orange
+    background-color: $annot-orange
+    &:hover
+      background-color: lighten($annot-orange, 20)
+  &.purple
+    background-color: $annot-purple
+    &:hover
+      background-color: lighten($annot-purple, 20)
+  &.pink
+    background-color: $annot-pink
+    &:hover
+      background-color: lighten($annot-pink, 20)
+  &.black
+    background-color: $annot-black
+    &:hover
+      background-color: lighten($annot-black, 20)
+    color: white
+  &.grey
+    background-color: $annot-grey
+    color: white
+    &:hover
+      background-color: lighten($annot-grey, 20)
+  &.white
+    background-color: $annot-white
+    &:hover
+      background-color: darken($annot-white, 20)

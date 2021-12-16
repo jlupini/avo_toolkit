@@ -1,0 +1,36 @@
+{
+  "name": "com.my.localserver",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/main.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "color-name-list": "^4.11.0",
+    "dart-sass": "^1.25.0",
+    "express": "^4.16.3",
+    "nearest-color": "^0.4.4",
+    "pdfjs-dist": "^2.2.228",
+    "request": "^2.85.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-codo": "^0.3.0",
+    "grunt-coffeelinter": "^0.1.0",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-coffee": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-nodeunit": "^0.4.1",
+    "grunt-contrib-uglify": "~0.5.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-file-append": "0.0.7",
+    "grunt-jsdoc": "^2.4.1",
+    "grunt-sass": "^3.1.0",
+    "node-sass": "^4.13.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,2415 @@
+{
+  "800_pg02.pdf": {
+    "annotations": [
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "105R",
+        "rect": [
+          134.9234,
+          834.403,
+          141.3049,
+          839.569
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "http://mobile.nytimes.com/2014/02/12/business/rival-industries-sweet-talk-the-public.html",
+        "unsafeUrl": "http://mobile.nytimes.com/2014/02/12/business/rival-industries-sweet-talk-the-public.html",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 4,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 105,
+          "1": 176,
+          "2": 241
+        },
+        "hasAppearance": true,
+        "id": "106R",
+        "rect": [
+          149.0078,
+          146.3188,
+          307.4231,
+          160.2454
+        ],
+        "subtype": "Highlight",
+        "annotationType": 9,
+        "hasPopup": false,
+        "title": "Michael",
+        "contents": "",
+        "colorName": "Highlight Blue"
+      },
+      {
+        "annotationFlags": 4,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 250,
+          "1": 205,
+          "2": 90
+        },
+        "hasAppearance": true,
+        "id": "107R",
+        "rect": [
+          149.0078,
+          204.0564,
+          322.9209,
+          225.8839
+        ],
+        "subtype": "Highlight",
+        "annotationType": 9,
+        "hasPopup": false,
+        "title": "Michael",
+        "contents": "",
+        "colorName": "Highlight Yellow"
+      },
+      {
+        "annotationFlags": 4,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 124,
+          "1": 200,
+          "2": 104
+        },
+        "hasAppearance": true,
+        "id": "108R",
+        "rect": [
+          234.7607,
+          285.4968,
+          296.563,
+          291.5224
+        ],
+        "subtype": "Highlight",
+        "annotationType": 9,
+        "hasPopup": false,
+        "title": "Michael",
+        "contents": "",
+        "colorName": "Highlight Green"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "109R",
+        "rect": [
+          260.1226,
+          830.4525,
+          316.6446,
+          838.6573
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/",
+        "unsafeUrl": "https://www.nytimes.com/",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "110R",
+        "rect": [
+          430.904,
+          830.4525,
+          464.9387,
+          839.2651
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/subscription/multiproduct/lp8HYKU.html?campaignId=67LXL",
+        "unsafeUrl": "https://www.nytimes.com/subscription/multiproduct/lp8HYKU.html?campaignId=67LXL",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "111R",
+        "rect": [
+          55.00255,
+          804.3187,
+          127.9341,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/12/technology/facebook-news-feed-overhaul.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/12/technology/facebook-news-feed-overhaul.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "112R",
+        "rect": [
+          130.6691,
+          804.3187,
+          203.6006,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/11/business/media/facebook-news-feed-media.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/11/business/media/facebook-news-feed-media.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "113R",
+        "rect": [
+          206.3355,
+          804.3187,
+          279.2671,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/12/technology/facebook-news-feed-changes.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/12/technology/facebook-news-feed-changes.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "114R",
+        "rect": [
+          282.002,
+          804.3187,
+          354.9336,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/12/technology/uber-hacker-payment-100000.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/12/technology/uber-hacker-payment-100000.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "115R",
+        "rect": [
+          357.6685,
+          804.3187,
+          430.6001,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/12/business/sams-club-walmart-closures.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/12/business/sams-club-walmart-closures.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "116R",
+        "rect": [
+          509.0015,
+          804.3187,
+          581.9331,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/12/business/media/live-nation-songkick.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/12/business/media/live-nation-songkick.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "117R",
+        "rect": [
+          584.668,
+          804.3187,
+          595,
+          827.1099
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/2018/01/12/business/holiday-retail-sales.html?ribbon-ad-idx=5&rref=business",
+        "unsafeUrl": "https://www.nytimes.com/2018/01/12/business/holiday-retail-sales.html?ribbon-ad-idx=5&rref=business",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "118R",
+        "rect": [
+          126.7186,
+          757.217,
+          159.2339,
+          762.3831
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/pages/business/index.html",
+        "unsafeUrl": "https://www.nytimes.com/pages/business/index.html",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "119R",
+        "rect": [
+          131.5807,
+          720.1435,
+          152.8524,
+          725.6133
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/by/eric-lipton",
+        "unsafeUrl": "https://www.nytimes.com/by/eric-lipton",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "120R",
+        "rect": [
+          382.2829,
+          718.0164,
+          389.88,
+          726.525
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "unsafeUrl": "javascript:;",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "121R",
+        "rect": [
+          394.4382,
+          718.0164,
+          402.0352,
+          726.525
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "unsafeUrl": "javascript:;",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "122R",
+        "rect": [
+          406.5935,
+          718.0164,
+          414.1905,
+          726.525
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "unsafeUrl": "javascript:;",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "123R",
+        "rect": [
+          418.7487,
+          718.0164,
+          426.3458,
+          726.525
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "unsafeUrl": "javascript:;",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "124R",
+        "rect": [
+          430.904,
+          718.0164,
+          438.501,
+          726.525
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "unsafeUrl": "javascript:;",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "125R",
+        "rect": [
+          447.6175,
+          718.0164,
+          452.4796,
+          726.525
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "unsafeUrl": "javascript:;",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "126R",
+        "rect": [
+          221.8335,
+          425.6823,
+          275.3167,
+          431.7599
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "http://ajcn.nutrition.org/content/79/4/537.full",
+        "unsafeUrl": "http://ajcn.nutrition.org/content/79/4/537.full",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "127R",
+        "rect": [
+          359.188,
+          656.3284,
+          468.5853,
+          676.0807
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "https://www.nytimes.com/interactive/2014/02/12/business/sugardoc.html",
+        "unsafeUrl": "https://www.nytimes.com/interactive/2014/02/12/business/sugardoc.html",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "128R",
+        "rect": [
+          214.2365,
+          241.2263,
+          260.7303,
+          247.3039
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "http://adage.com/article/news/major-brands-longer-sweet-high-fructose-corn-syrup/142788/",
+        "unsafeUrl": "http://adage.com/article/news/major-brands-longer-sweet-high-fructose-corn-syrup/142788/",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "129R",
+        "rect": [
+          263.7692,
+          204.4566,
+          300.5388,
+          210.5342
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "http://www.nature.com/ijo/journal/v37/n6/full/ijo2012157a.html",
+        "unsafeUrl": "http://www.nature.com/ijo/journal/v37/n6/full/ijo2012157a.html",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "130R",
+        "rect": [
+          149.5097,
+          196.5557,
+          263.4653,
+          202.6333
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "url": "http://www.foodnavigator-usa.com/R-D/Study-provides-compelling-evidence-that-HFCS-and-sucrose-do-not-increase-liver-fat-in-real-world-conditions",
+        "unsafeUrl": "http://www.foodnavigator-usa.com/R-D/Study-provides-compelling-evidence-that-HFCS-and-sucrose-do-not-increase-liver-fat-in-real-world-conditions",
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "131R",
+        "rect": [
+          134.9234,
+          834.403,
+          141.3049,
+          839.569
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "dest": [
+          {
+            "num": 2,
+            "gen": 0
+          },
+          {
+            "name": "XYZ"
+          },
+          126,
+          762,
+          null
+        ],
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "132R",
+        "rect": [
+          134.9234,
+          834.403,
+          141.3049,
+          839.569
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "dest": [
+          {
+            "num": 225,
+            "gen": 0
+          },
+          {
+            "name": "XYZ"
+          },
+          137,
+          645,
+          null
+        ],
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "133R",
+        "rect": [
+          381.9791,
+          726.525,
+          382.283,
+          726.8289
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "dest": [
+          {
+            "num": 2,
+            "gen": 0
+          },
+          {
+            "name": "XYZ"
+          },
+          149,
+          343,
+          null
+        ],
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "134R",
+        "rect": [
+          126.4147,
+          298.6599,
+          126.7186,
+          298.9637
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "dest": [
+          {
+            "num": 2,
+            "gen": 0
+          },
+          {
+            "name": "XYZ"
+          },
+          126,
+          298,
+          null
+        ],
+        "colorName": "Black"
+      },
+      {
+        "annotationFlags": 0,
+        "borderStyle": {
+          "width": 0,
+          "style": 1,
+          "dashArray": [
+            3
+          ],
+          "horizontalCornerRadius": 0,
+          "verticalCornerRadius": 0
+        },
+        "color": {
+          "0": 0,
+          "1": 0,
+          "2": 0
+        },
+        "hasAppearance": true,
+        "id": "135R",
+        "rect": [
+          126.4147,
+          298.6599,
+          126.7186,
+          298.9637
+        ],
+        "subtype": "Link",
+        "annotationType": 2,
+        "dest": [
+          {
+            "num": 2,
+            "gen": 0
+          },
+          {
+            "name": "XYZ"
+          },
+          149,
+          292,
+          null
+        ],
+        "colorName": "Black"
+      }
+    ],
+    "viewport": {
+      "viewBox": [
+        0,
+        0,
+        595,
+        842
+      ],
+      "scale": 1,
+      "rotation": 0,
+      "offsetX": 0,
+      "offsetY": 0,
+      "transform": [
+        1,
+        0,
+        0,
+        -1,
+        0,
+        842
+      ],
+      "width": 595,
+      "height": 842
+    },
+    "textContent": [
+      {
+        "str": "Dietary Sugar and Body Weight:",
+        "tx": [
+          21.9178,
+          0,
+          0,
+          -21.9178,
+          47.8488,
+          195.02059999999994
+        ],
+        "fontHeight": 21.9178,
+        "width": 289.61304208,
+        "height": 21.9178,
+        "left": 47.8488,
+        "top": 173.10279999999995
+      },
+      {
+        "str": "Have We Reached a Crisis in the",
+        "tx": [
+          21.9178,
+          0,
+          0,
+          -21.9178,
+          47.8488,
+          218.9461
+        ],
+        "fontHeight": 21.9178,
+        "width": 296.3505738,
+        "height": 21.9178,
+        "left": 47.8488,
+        "top": 197.0283
+      },
+      {
+        "str": "Epidemic of Obesity and Diabetes?",
+        "tx": [
+          21.9178,
+          0,
+          0,
+          -21.9178,
+          47.8488,
+          242.81460000000004
+        ],
+        "fontHeight": 21.9178,
+        "width": 312.62892386,
+        "height": 21.9178,
+        "left": 47.8488,
+        "top": 220.89680000000004
+      },
+      {
+        "str": "We Have, but the Pox on Sugar Is",
+        "tx": [
+          17.9328,
+          0,
+          0,
+          -17.9328,
+          47.8488,
+          266.2269
+        ],
+        "fontHeight": 17.9328,
+        "width": 263.1494937599999,
+        "height": 17.9328,
+        "left": 47.8488,
+        "top": 248.29410000000001
+      },
+      {
+        "str": "Overwrought and Over worked",
+        "tx": [
+          17.9328,
+          0,
+          0,
+          -17.9328,
+          47.8488,
+          286.1825
+        ],
+        "fontHeight": 17.9328,
+        "width": 232.5346176,
+        "height": 17.9328,
+        "left": 47.8488,
+        "top": 268.2497
+      },
+      {
+        "str": "Diabetes Care 2014;37:957",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          47.8488,
+          304.0978
+        ],
+        "fontHeight": 8.9663,
+        "width": 98.81848893000002,
+        "height": 8.9663,
+        "left": 47.8488,
+        "top": 295.1315
+      },
+      {
+        "str": "–",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          146.722,
+          304.0978
+        ],
+        "fontHeight": 8.9663,
+        "width": 4.3845207,
+        "height": 8.9663,
+        "left": 146.722,
+        "top": 295.1315
+      },
+      {
+        "str": "962",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          151.1442,
+          304.0978
+        ],
+        "fontHeight": 8.9663,
+        "width": 13.553459080000001,
+        "height": 8.9663,
+        "left": 151.1442,
+        "top": 295.1315
+      },
+      {
+        "str": "|",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          167.132,
+          304.0978
+        ],
+        "fontHeight": 8.9663,
+        "width": 4.1065654,
+        "height": 8.9663,
+        "left": 167.132,
+        "top": 295.1315
+      },
+      {
+        "str": "DOI: 10.2337/dc13-2506",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          173.5949,
+          304.0978
+        ],
+        "fontHeight": 8.9663,
+        "width": 89.64058425000002,
+        "height": 8.9663,
+        "left": 173.5949,
+        "top": 295.1315
+      },
+      {
+        "str": "In the preceding point narrative, Drs. Bray and Popkin provide their opinion and",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          414.7056
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.74501295999994,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 405.241
+      },
+      {
+        "str": "review data that suggest to them that we need to reconsider the consumption of",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          426.6679
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.78665719999987,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 417.20329999999996
+      },
+      {
+        "str": "dietary sugar based on the growing concern of obesity and type 2 diabetes. In the",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          438.6302
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.73649482,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 429.1656
+      },
+      {
+        "str": "counterpoint narrative below, we argue that there is no clear or convincing",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          450.5357
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.79328242,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 441.0711
+      },
+      {
+        "str": "evidence that any dietary or added sugar has a unique or detrimental impact",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          462.498
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.71283332,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 453.0334
+      },
+      {
+        "str": "relative to any other source of calories on the development of obesity or diabetes.",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          474.4604
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.6939041199999,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 464.9958
+      },
+      {
+        "str": "Sugar is purely a highly palatable source of energy; because it has no other",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          486.4227
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.7913895000001,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 476.9581
+      },
+      {
+        "str": "property that appears to contribute to our nutritional well-being, it is not an",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          498.385
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.7667815399999,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 488.9204
+      },
+      {
+        "str": "essential food for most of us. For those who wish to reduce energy consumption,",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          510.3473
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.74690587999993,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 500.8827
+      },
+      {
+        "str": "ingestingless sugarisa goodplace to start.However, doing so doesnot automatically",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          522.3096
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.84155188000005,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 512.845
+      },
+      {
+        "str": "portend any clinical bene",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          534.2719
+        ],
+        "fontHeight": 9.4646,
+        "width": 97.11909998000002,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 524.8072999999999
+      },
+      {
+        "str": "fi",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          144.737,
+          534.2719
+        ],
+        "fontHeight": 9.4646,
+        "width": 5.224459200000001,
+        "height": 9.4646,
+        "left": 144.737,
+        "top": 524.8072999999999
+      },
+      {
+        "str": "t.",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          149.8961,
+          534.2719
+        ],
+        "fontHeight": 9.4646,
+        "width": 5.7071538,
+        "height": 9.4646,
+        "left": 149.8961,
+        "top": 524.8072999999999
+      },
+      {
+        "str": "In this counterpoint discussion, we use the phrase",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 191.39219474000006,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 552.1903
+      },
+      {
+        "str": "“",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          241.2853,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 3.9372736000000006,
+        "height": 9.4646,
+        "left": 241.2853,
+        "top": 552.1903
+      },
+      {
+        "str": "dietary sugar",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          245.2539,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 50.07530567999999,
+        "height": 9.4646,
+        "left": 245.2539,
+        "top": 552.1903
+      },
+      {
+        "str": "”",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          295.4257,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 3.9372736000000006,
+        "height": 9.4646,
+        "left": 295.4257,
+        "top": 552.1903
+      },
+      {
+        "str": "or",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          301.3799,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 8.30234712,
+        "height": 9.4646,
+        "left": 301.3799,
+        "top": 552.1903
+      },
+      {
+        "str": "“",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          311.6414,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 3.9372736000000006,
+        "height": 9.4646,
+        "left": 311.6414,
+        "top": 552.1903
+      },
+      {
+        "str": "added sugar",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          315.6099,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 47.020132800000006,
+        "height": 9.4646,
+        "left": 315.6099,
+        "top": 552.1903
+      },
+      {
+        "str": "”",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          362.6651,
+          561.6549
+        ],
+        "fontHeight": 9.4646,
+        "width": 3.9372736000000006,
+        "height": 9.4646,
+        "left": 362.6651,
+        "top": 552.1903
+      },
+      {
+        "str": "to mean sucrose or high-fructose corn syrup (HFCS). Almost all dietary or added",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          573.107
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.77435322,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 563.6424
+      },
+      {
+        "str": "sugar used as an ingredient in either solid (e.g., desserts, snacks) or liquid (e.g.,",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          584.5591999999999
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.77624614,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 575.0945999999999
+      },
+      {
+        "str": "sugar-sweetened beverages [SSB]) foods is in the form of these two disaccharides.",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          596.0114
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.77813905999994,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 586.5468
+      },
+      {
+        "str": "Although we will discuss evidence from feeding studies in which fructose itself was",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          607.4635000000001
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.8065328599999,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 597.9989
+      },
+      {
+        "str": "used as the sole added sweetener, it should be noted that fructose rarely occurs",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          618.9157
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.7980147200001,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 609.4511
+      },
+      {
+        "str": "alone in foods commonly consumed by humans. Also of importance is the fact that",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          630.3679
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.7081010200001,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 620.9033
+      },
+      {
+        "str": "sucrose and HFCS are both composed of glucose and fructose. Whereas the ratio of",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          641.8199999999999
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.80463994,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 632.3553999999999
+      },
+      {
+        "str": "glucose to fructose is equal in sucrose, in HFCS the ratio is usually 55% fructose, 42%",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          653.2722
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.78949658000005,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 643.8076
+      },
+      {
+        "str": "glucose, and 3% glucose polymers; other forms of HFCS have a lower proportion of",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          664.7812
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.79044304000024,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 655.3166
+      },
+      {
+        "str": "fructose. In addition, the glucose and fructose in HFCS are free in solution; in sucrose",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          676.2333
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.71661916000005,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 666.7687
+      },
+      {
+        "str": "they are initially bound together. But when sucrose is used in processed or prepared",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          687.6855
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.78192490000015,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 678.2209
+      },
+      {
+        "str": "foods/beverages an appreciable amount is broken down to free fructose and glu-",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          699.1377
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.7346019000001,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 689.6731
+      },
+      {
+        "str": "cose prior to consumption. Finally, whereas glucose and fructose are metabolized",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          710.5898
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.76962092,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 701.1252
+      },
+      {
+        "str": "differently, the belief that sucrose is metabolized differently than HFCS is a myth. No",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          722.042
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.71377978,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 712.5774
+      },
+      {
+        "str": "study has shown any difference between the two when each is given isocalorically,",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          733.4942
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.77435322000014,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 724.0296
+      },
+      {
+        "str": "nor is there any difference in sweetness or caloric value (1",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          744.94632
+        ],
+        "fontHeight": 9.4646,
+        "width": 227.02452082000005,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 735.48172
+      },
+      {
+        "str": "–",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          274.9036,
+          744.94632
+        ],
+        "fontHeight": 9.4646,
+        "width": 4.6281894,
+        "height": 9.4646,
+        "left": 274.9036,
+        "top": 735.48172
+      },
+      {
+        "str": "3).",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          279.6094,
+          744.94632
+        ],
+        "fontHeight": 9.4646,
+        "width": 10.019225560000002,
+        "height": 9.4646,
+        "left": 279.6094,
+        "top": 735.48172
+      },
+      {
+        "str": "Much of the condemnation of sugar in the last few years owes its origin to an",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          57.25945,
+          756.3984800000001
+        ],
+        "fontHeight": 9.4646,
+        "width": 309.31164614000005,
+        "height": 9.4646,
+        "left": 57.25945,
+        "top": 746.93388
+      },
+      {
+        "str": "article by Bray et al. (4) showing an ecological relationship between sugar availability",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          767.85065
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.73554835999994,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 758.38605
+      },
+      {
+        "str": "(a crude measure of intake) and obesity, which has now been expanded to explain a",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          779.30281
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.79990763999996,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 769.83821
+      },
+      {
+        "str": "myriad of metabolic abnormalities (5",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          790.81177
+        ],
+        "fontHeight": 9.4646,
+        "width": 143.82122222,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 781.34717
+      },
+      {
+        "str": "–",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          191.7921,
+          790.81177
+        ],
+        "fontHeight": 9.4646,
+        "width": 4.6281894,
+        "height": 9.4646,
+        "left": 191.7921,
+        "top": 781.34717
+      },
+      {
+        "str": "7). Table 1 shows that the rise in the preva-",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          196.4411,
+          790.81177
+        ],
+        "fontHeight": 9.4646,
+        "width": 170.10820226000007,
+        "height": 9.4646,
+        "left": 196.4411,
+        "top": 781.34717
+      },
+      {
+        "str": "lence of overweight/obesity in the early 1980s does indeed appear to be related to",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          802.26393
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.7734067600002,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 792.7993299999999
+      },
+      {
+        "str": "an increase in the availability of added sugars. However, starting around 2000, sugar",
+        "tx": [
+          9.4646,
+          0,
+          0,
+          -9.4646,
+          47.8488,
+          813.7161
+        ],
+        "fontHeight": 9.4646,
+        "width": 318.79990764,
+        "height": 9.4646,
+        "left": 47.8488,
+        "top": 804.2515
+      },
+      {
+        "str": "1",
+        "tx": [
+          5.9774,
+          0,
+          0,
+          -5.3127,
+          378.5952,
+          656.2174
+        ],
+        "fontHeight": 5.3127,
+        "width": 2.9887,
+        "height": 5.9774,
+        "left": 378.5952,
+        "top": 650.9047
+      },
+      {
+        "str": "Department of Medicine, University of North",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          381.6566,
+          659.789
+        ],
+        "fontHeight": 7.9702,
+        "width": 150.34507068000005,
+        "height": 7.9702,
+        "left": 381.6566,
+        "top": 651.8188
+      },
+      {
+        "str": "Carolina School of Medicine, Chapel Hill, NC",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.5952,
+          669.2568
+        ],
+        "fontHeight": 7.9702,
+        "width": 140.72743034000004,
+        "height": 7.9702,
+        "left": 378.5952,
+        "top": 661.2866
+      },
+      {
+        "str": "2",
+        "tx": [
+          5.9774,
+          0,
+          0,
+          -5.3127,
+          378.5952,
+          675.1528000000001
+        ],
+        "fontHeight": 5.3127,
+        "width": 2.9887,
+        "height": 5.9774,
+        "left": 378.5952,
+        "top": 669.8401000000001
+      },
+      {
+        "str": "Toronto 3D Knowledge Synthesis and Clinical",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          381.5999,
+          678.7245
+        ],
+        "fontHeight": 7.9702,
+        "width": 150.41441142,
+        "height": 7.9702,
+        "left": 381.5999,
+        "top": 670.7543000000001
+      },
+      {
+        "str": "Trials Unit, Clinical Nutrition and Risk Factor",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.5951,
+          688.1922999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 153.47178014000005,
+        "height": 7.9702,
+        "left": 378.5951,
+        "top": 680.2221
+      },
+      {
+        "str": "Modi",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.5951,
+          697.6034999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 17.759199640000002,
+        "height": 7.9702,
+        "left": 378.5951,
+        "top": 689.6333
+      },
+      {
+        "str": "fi",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          396.3966,
+          697.6034999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 4.144504,
+        "height": 7.9702,
+        "left": 396.3966,
+        "top": 689.6333
+      },
+      {
+        "str": "cation Centre, St. Michael",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          400.8184,
+          697.6034999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 91.98328118,
+        "height": 7.9702,
+        "left": 400.8184,
+        "top": 689.6333
+      },
+      {
+        "str": "’",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          492.8878,
+          697.6034999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 1.9048778000000002,
+        "height": 7.9702,
+        "left": 492.8878,
+        "top": 689.6333
+      },
+      {
+        "str": "sHospital,",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          495.0421,
+          697.6034999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 40.3371822,
+        "height": 7.9702,
+        "left": 495.0421,
+        "top": 689.6333
+      },
+      {
+        "str": "Toronto, Canada",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.5943,
+          707.0713000000001
+        ],
+        "fontHeight": 7.9702,
+        "width": 53.777330459999995,
+        "height": 7.9702,
+        "left": 378.5943,
+        "top": 699.1011000000001
+      },
+      {
+        "str": "3",
+        "tx": [
+          5.9774,
+          0,
+          0,
+          -5.3127,
+          378.5952,
+          713.0237
+        ],
+        "fontHeight": 5.3127,
+        "width": 2.9887,
+        "height": 5.9774,
+        "left": 378.5952,
+        "top": 707.711
+      },
+      {
+        "str": "Department of Pathology and Molecular Medi-",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          381.5432,
+          716.5386
+        ],
+        "fontHeight": 7.9702,
+        "width": 150.52519720000004,
+        "height": 7.9702,
+        "left": 381.5432,
+        "top": 708.5684
+      },
+      {
+        "str": "cine, Faculty of Health Sciences, McMaster Uni-",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          726.0064
+        ],
+        "fontHeight": 7.9702,
+        "width": 153.44069636000003,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 718.0362
+      },
+      {
+        "str": "versity, Hamilton, Canada",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          735.4742
+        ],
+        "fontHeight": 7.9702,
+        "width": 82.80320481999999,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 727.504
+      },
+      {
+        "str": "Corresponding author: Richard Kahn, rak6200@",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          747.94677
+        ],
+        "fontHeight": 7.9702,
+        "width": 153.45902782000002,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 739.97657
+      },
+      {
+        "str": "gmail.com.",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          757.41457
+        ],
+        "fontHeight": 7.9702,
+        "width": 35.515211199999996,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 749.44437
+      },
+      {
+        "str": "© 2014 by the American Diabetes Association.",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          769.88713
+        ],
+        "fontHeight": 7.9702,
+        "width": 153.40164238000006,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 761.91693
+      },
+      {
+        "str": "See http://creativecommons.org/licenses/by-",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          779.29835
+        ],
+        "fontHeight": 7.9702,
+        "width": 153.52199240000004,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 771.32815
+      },
+      {
+        "str": "nc-nd/3.0/ for details.",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          378.595,
+          788.76615
+        ],
+        "fontHeight": 7.9702,
+        "width": 71.21373700000001,
+        "height": 7.9702,
+        "left": 378.595,
+        "top": 780.7959500000001
+      },
+      {
+        "str": "See accompanying articles, pp. 906,",
+        "tx": [
+          9.9626,
+          0,
+          0,
+          -9.9626,
+          378.5952,
+          802.7118
+        ],
+        "fontHeight": 9.9626,
+        "width": 147.03303210000004,
+        "height": 9.9626,
+        "left": 378.5952,
+        "top": 792.7492000000001
+      },
+      {
+        "str": "909, 912, 922, 934, 943, and 950.",
+        "tx": [
+          9.9626,
+          0,
+          0,
+          -9.9626,
+          387.5526,
+          813.71051
+        ],
+        "fontHeight": 9.9626,
+        "width": 135.90580416,
+        "height": 9.9626,
+        "left": 387.5526,
+        "top": 803.74791
+      },
+      {
+        "str": "Richard Kahn",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          378.5952,
+          181.69780000000003
+        ],
+        "fontHeight": 8.9663,
+        "width": 48.37767165,
+        "height": 8.9663,
+        "left": 378.5952,
+        "top": 172.73150000000004
+      },
+      {
+        "str": "1",
+        "tx": [
+          6.7246,
+          0,
+          0,
+          -5.9768,
+          427.0676,
+          177.6726
+        ],
+        "fontHeight": 5.9768,
+        "width": 3.3623,
+        "height": 6.7246,
+        "left": 427.0676,
+        "top": 171.6958
+      },
+      {
+        "str": "and John L. Sievenpiper",
+        "tx": [
+          8.9663,
+          0,
+          0,
+          -8.9663,
+          432.8503,
+          181.69780000000003
+        ],
+        "fontHeight": 8.9663,
+        "width": 85.53132896000002,
+        "height": 8.9663,
+        "left": 432.8503,
+        "top": 172.73150000000004
+      },
+      {
+        "str": "2,3",
+        "tx": [
+          6.7246,
+          0,
+          0,
+          -5.9768,
+          519.4771,
+          177.6726
+        ],
+        "fontHeight": 5.9768,
+        "width": 8.42794118,
+        "height": 6.7246,
+        "left": 519.4771,
+        "top": 171.6958
+      },
+      {
+        "str": "Diabetes Care",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          47.8488,
+          95.63789999999995
+        ],
+        "fontHeight": 7.9702,
+        "width": 46.22078384,
+        "height": 7.9702,
+        "left": 47.8488,
+        "top": 87.66769999999994
+      },
+      {
+        "str": "Volume 37, April 2014",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          98.07859,
+          95.63789999999995
+        ],
+        "fontHeight": 7.9702,
+        "width": 72.54157232,
+        "height": 7.9702,
+        "left": 98.07859,
+        "top": 87.66769999999994
+      },
+      {
+        "str": "957",
+        "tx": [
+          7.9702,
+          0,
+          0,
+          -7.9702,
+          543.9133,
+          95.63789999999995
+        ],
+        "fontHeight": 7.9702,
+        "width": 12.035002,
+        "height": 7.9702,
+        "left": 543.9133,
+        "top": 87.66769999999994
+      },
+      {
+        "str": "TYPE 2 DIABETES PREVENTION",
+        "tx": [
+          0,
+          7.9702,
+          7.9702,
+          0,
+          576.8502,
+          101.47739999999999
+        ],
+        "fontHeight": 7.9702,
+        "width": 102.96541976,
+        "height": 7.9702,
+        "left": 576.8502,
+        "top": 93.50719999999998
+      }
+    ]
+  }
+}

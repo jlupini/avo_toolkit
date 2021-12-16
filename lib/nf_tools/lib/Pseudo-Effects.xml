@@ -1,0 +1,49 @@
+<!-- BEGIN AVOCADO PSEUDO-EFFECTS -->
+<!-- AV-PE-Version="1.3" -->
+
+<Effect matchname="AV_Highlighter" name="$$$/AE/Preset/AVHighlighter=AV Highlighter">
+	<Slider name="$$$/AE/Preset/Spacing=Spacing" default="74" valid_min="0" valid_max="1000" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Thickness=Thickness" default="70" valid_min="0" valid_max="1000" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/StartOffset=Start Offset" default="0" valid_min="0" valid_max="100" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Completion=Completion" default="1000" valid_min="0" valid_max="1000" slider_min="0" slider_max="1000" precision="1"/>
+	<Point name="$$$/AE/Preset/Offset=Offset" default_x="0" default_y="0"/>
+	<Slider name="$$$/AE/Preset/Opacity=Opacity" default="100" valid_min="0" valid_max="100" slider_min="5" slider_max="100" precision="1"/>
+	<Popup name="$$$/AE/Preset/HighlightColour=Highlight Colour" popup_string="$$$/AE/Preset/AVHighlighter/Popup=Yellow|Blue|Purple|Green|Pink|Orange|Red" default="1"/>
+	<Slider name="$$$/AE/Preset/EndOffset=End Offset" default="0" valid_min="0" valid_max="100" slider_min="0" slider_max="100" precision="1"/>
+</Effect>
+
+<Effect matchname="AV_Scribble" name="$$$/AE/Preset/AV Scribble=AV Scribble">
+	<Slider name="$$$/AE/Preset/Thickness=Thickness" default="70" valid_min="0" valid_max="1000" slider_min="0" slider_max="100" precision="1"/>
+	<Color name="$$$/AE/Preset/Color=Color" default_red="63" default_green="202" default_blue="255"/>
+</Effect>
+
+<Effect matchname="AV_Pen_Line" name="$$$/AE/Preset/AV Pen Line=AV Pen Line">
+	<Slider name="$$$/AE/Preset/Thickness=Thickness" default="8" valid_min="0" valid_max="1000" slider_min="0" slider_max="100" precision="1"/>
+	<Color name="$$$/AE/Preset/Color=Color" default_red="150" default_green="0" default_blue="0"/>
+</Effect>
+
+<Effect matchname="AV_Cylon" name="$$$/AE/Preset/AV Cylon=AV Cylon">
+	<Slider name="$$$/AE/Preset/Thickness=Thickness" default="74" valid_min="0" valid_max="1000" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Lag=Lag" default="0.5" valid_min="0" valid_max="10" slider_min="0" slider_max="10" precision="1"/>
+	<Color name="$$$/AE/Preset/Color=Color" default_red="255" default_green="221" default_blue="3"/>
+</Effect>
+
+<Effect matchname="AV_Spotlight" name="$$$/AE/Preset/AV Spotlight=AV Spotlight">
+	<Slider name="$$$/AE/Preset/Duration=Duration" default="60" valid_min="0" valid_max="100" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Feather=Feather" default="80" valid_min="0" valid_max="200" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Opacity=Opacity" default="35" valid_min="0" valid_max="100" slider_min="0" slider_max="100" precision="1"/>
+</Effect>
+
+<Effect matchname="AV_Gaussy" name="$$$/AE/Preset/AV Gaussy=AV Gaussy">
+	<Slider name="$$$/AE/Preset/Blurriness=Blurriness" default="400" valid_min="0" valid_max="500" slider_min="0" slider_max="500" precision="1"/>
+	<Slider name="$$$/AE/Preset/Duration=Duration" default="60" valid_min="1" valid_max="500" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Lightness=Lightness" default="90" valid_min="0" valid_max="100" slider_min="0" slider_max="100" precision="1"/>
+	<Slider name="$$$/AE/Preset/Saturation=Saturation" default="-70" valid_min="-100" valid_max="0" slider_min="-100" slider_max="0" precision="1"/>
+</Effect>
+
+<Effect matchname="AV_Highlight_Control" name="$$$/AE/Preset/AV Highlight Control=AV Highlight Control">
+	<Checkbox name="$$$/AE/Preset/Endless=Endless" checked="true"/>
+	<Slider name="$$$/AE/Preset/OpacityDuration=Opacity Duration" default="1" valid_min="0" valid_max="10" slider_min="0" slider_max="10" precision="1"/>
+</Effect>
+
+<!-- END AVOCADO PSEUDO-EFFECTS -->
