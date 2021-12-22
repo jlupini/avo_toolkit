@@ -422,6 +422,7 @@ class NFComp extends NFObject
     textDoc.font = model.font
     textDoc.fontSize = model.fontSize
     textDoc.justification = model.justification
+    textDoc.tracking = model.tracking
 
     textDocProp.setValue textDoc
 

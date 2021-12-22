@@ -1097,9 +1097,8 @@ class NFPartComp extends NFComp
       comp: webComp
       above: layers.getTopmostLayer()
       time: layers.getEarliestLayer().$.inPoint
-    gaussyLayer = @addGaussy
-      layer: webCompLayer
-      time: layers.getEarliestLayer().$.inPoint
+    webCompLayer.transform("Scale").setValue [94,94]
+    webCompLayer.transform("Position").setValue [960,668]
 
     webCompLayer.slideIn
       fromEdge: NFComp.BOTTOM

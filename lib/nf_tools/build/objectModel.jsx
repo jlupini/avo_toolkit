@@ -633,6 +633,7 @@ NFComp = (function(superClass) {
     textDoc.font = model.font;
     textDoc.fontSize = model.fontSize;
     textDoc.justification = model.justification;
+    textDoc.tracking = model.tracking;
     textDocProp.setValue(textDoc);
     if (index !== 0) {
       textAVLayer.moveBefore(this.$.layers[index + 2]);
@@ -8172,7 +8173,7 @@ NFPartComp = (function(superClass) {
    */
 
   NFPartComp.prototype.addBrowserWindow = function(layers) {
-    var assetsFolder, browserImage, browserLayer, gaussyLayer, idx, j, len, matteComp, matteCompItem, matteLayer, matteSolid, newMask, newPreComp, pastedLayers, preCompIndexes, shadowProp, suffix, textLayer, webComp, webCompLayer, webCompVisibleLayers, webCompsFolder;
+    var assetsFolder, browserImage, browserLayer, idx, j, len, matteComp, matteCompItem, matteLayer, matteSolid, newMask, newPreComp, pastedLayers, preCompIndexes, shadowProp, suffix, textLayer, webComp, webCompLayer, webCompVisibleLayers, webCompsFolder;
     if (layers instanceof NFLayer) {
       layers = new NFLayerCollection([layers]);
     }
@@ -8259,10 +8260,8 @@ NFPartComp = (function(superClass) {
       above: layers.getTopmostLayer(),
       time: layers.getEarliestLayer().$.inPoint
     });
-    gaussyLayer = this.addGaussy({
-      layer: webCompLayer,
-      time: layers.getEarliestLayer().$.inPoint
-    });
+    webCompLayer.transform("Scale").setValue([94, 94]);
+    webCompLayer.transform("Position").setValue([960, 668]);
     webCompLayer.slideIn({
       fromEdge: NFComp.BOTTOM
     });
