@@ -104,5 +104,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-jsdoc'
 
   # Default task(s).
-  grunt.registerTask 'default', ['coffee', 'copy']
+  grunt.registerTask 'default', ['coffee', 'copy', 'jsdoc']
   return
