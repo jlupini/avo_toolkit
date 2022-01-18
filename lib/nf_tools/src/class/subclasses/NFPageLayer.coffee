@@ -154,7 +154,7 @@ class NFPageLayer extends NFLayer
   @returns {NFPageLayer} self
   ###
   setDropShadow: ->
-    shadowProp = @effects().property('ADBE Drop Shadow') ? @effects().addProperty('ADBE Drop Shadow')
+    shadowProp = @effects().property('ADBE Drop Shadow') ? @addEffect('ADBE Drop Shadow')
     shadowProp.property('Opacity').setValue(51)
     shadowProp.property('Direction').setValue(145)
     shadowProp.property('Distance').setValue(10)
@@ -390,7 +390,7 @@ class NFPageLayer extends NFLayer
       REF_LAYER_NAME: refLayer.getName()
       OPACITY_DURATION: 1
     shadowProp = bgSolid.addDropShadow()
-    expOffset = bgSolid.effects().addProperty('ADBE Slider Control')
+    expOffset = bgSolid.addEffect('ADBE Slider Control')
     expOffset.name = "Expand Transition Timing Offset"
     expOffset.property("Slider").setValue -0.5
 
@@ -549,7 +549,7 @@ class NFPageLayer extends NFLayer
 
     pageTurnEffect = @effect pageTurnMatchName
     if not pageTurnEffect?
-      pageTurnEffect = @effects().addProperty pageTurnMatchName
+      pageTurnEffect = @addEffect pageTurnMatchName
       pageTurnEffect.property("Fold Radius").setValue 500
       foldPosition = pageTurnEffect.property("Fold Position")
       if pageTurnStatus is NFPageLayer.PAGETURN_FLIPPED_UP
@@ -561,12 +561,12 @@ class NFPageLayer extends NFLayer
 
     forceMotionBlurEffect = @effect forceMotionBlurMatchName
     if not forceMotionBlurEffect?
-      forceMotionBlurEffect = @effects().addProperty forceMotionBlurMatchName
+      forceMotionBlurEffect = @addEffect forceMotionBlurMatchName
       forceMotionBlurEffect.property("Override Shutter Angle").setValue 0
 
     dropShadowEffect = @effect dropShadowMatchName
     dropShadowEffect.remove() if dropShadowEffect?
-    dropShadowEffect = @effects().addProperty dropShadowMatchName
+    dropShadowEffect = @addEffect dropShadowMatchName
     dropShadowEffect.property("Opacity").setValue 0.75 * 255
     dropShadowEffect.property("Direction").setValue 125
     dropShadowEffect.property("Distance").setValue 20

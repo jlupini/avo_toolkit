@@ -499,7 +499,7 @@ NFComp = (function(superClass) {
     highlightLayer.transform().property("Position").setValue([0, 0]);
     highlightLayer.transform().property("Position").expression = '[transform.position[0]+ effect("AV Highlighter")("Offset")[0], transform.position[1]+ effect("AV Highlighter")("Offset")[1]]';
     highlightLayer.$.blendingMode = BlendingMode.MULTIPLY;
-    highlightProperty = highlightLayer.effects().addProperty('AV_Highlighter');
+    highlightProperty = highlightLayer.addEffect('AV_Highlighter');
     highlightProperty.property("Spacing").setValue(paddedLineHeight);
     highlightProperty.property("Thickness").setValue(paddedLineHeight + 4);
     yOffset = model.lines === 1 ? paddedLineHeight / 2 - yPadding : paddedLineHeight / 2 - yPadding * 2;
@@ -507,7 +507,7 @@ NFComp = (function(superClass) {
     highlightProperty.property("Highlight Colour").setValue(model.color.idx);
     highlightLayer.transform().property('Opacity').expression = 'effect("AV Highlighter")("Opacity")';
     if (model.rectHash != null) {
-      hashProp = highlightLayer.effects().addProperty('ADBE Point Control');
+      hashProp = highlightLayer.addEffect('ADBE Point Control');
       hashProp.property("Point").setValue(model.rectHash);
       hashProp.name = "Rect Hash";
     }
@@ -1778,7 +1778,7 @@ NFLayer = (function(superClass) {
 
   NFLayer.prototype.addSlider = function(name, value) {
     var slider;
-    slider = this.effects().addProperty("ADBE Slider Control");
+    slider = this.addEffect("ADBE Slider Control");
     slider.slider.setValue(value);
     slider.name = name;
     return slider;
@@ -2076,7 +2076,7 @@ NFLayer = (function(superClass) {
 
   NFLayer.prototype.addDropShadow = function(model) {
     var ref, ref1, ref2, ref3, shadowProp;
-    shadowProp = this.effects().addProperty('ADBE Drop Shadow');
+    shadowProp = this.addEffect('ADBE Drop Shadow');
     shadowProp.property('Opacity').setValue((ref = model != null ? model.opacity : void 0) != null ? ref : 76.5);
     shadowProp.property('Direction').setValue((ref1 = model != null ? model.direction : void 0) != null ? ref1 : 152);
     shadowProp.property('Distance').setValue((ref2 = model != null ? model.distance : void 0) != null ? ref2 : 20);
@@ -5734,7 +5734,7 @@ NFPageLayer = (function(superClass) {
 
   NFPageLayer.prototype.setDropShadow = function() {
     var ref, shadowProp;
-    shadowProp = (ref = this.effects().property('ADBE Drop Shadow')) != null ? ref : this.effects().addProperty('ADBE Drop Shadow');
+    shadowProp = (ref = this.effects().property('ADBE Drop Shadow')) != null ? ref : this.addEffect('ADBE Drop Shadow');
     shadowProp.property('Opacity').setValue(51);
     shadowProp.property('Direction').setValue(145);
     shadowProp.property('Distance').setValue(10);
@@ -6024,7 +6024,7 @@ NFPageLayer = (function(superClass) {
       OPACITY_DURATION: 1
     });
     shadowProp = bgSolid.addDropShadow();
-    expOffset = bgSolid.effects().addProperty('ADBE Slider Control');
+    expOffset = bgSolid.addEffect('ADBE Slider Control');
     expOffset.name = "Expand Transition Timing Offset";
     expOffset.property("Slider").setValue(-0.5);
     if ((ref2 = refLayer.effect('Drop Shadow')) != null) {
@@ -6205,7 +6205,7 @@ NFPageLayer = (function(superClass) {
     pageTurnMatchName = "CC Page Turn";
     pageTurnEffect = this.effect(pageTurnMatchName);
     if (pageTurnEffect == null) {
-      pageTurnEffect = this.effects().addProperty(pageTurnMatchName);
+      pageTurnEffect = this.addEffect(pageTurnMatchName);
       pageTurnEffect.property("Fold Radius").setValue(500);
       foldPosition = pageTurnEffect.property("Fold Position");
       if (pageTurnStatus === NFPageLayer.PAGETURN_FLIPPED_UP) {
@@ -6218,14 +6218,14 @@ NFPageLayer = (function(superClass) {
     }
     forceMotionBlurEffect = this.effect(forceMotionBlurMatchName);
     if (forceMotionBlurEffect == null) {
-      forceMotionBlurEffect = this.effects().addProperty(forceMotionBlurMatchName);
+      forceMotionBlurEffect = this.addEffect(forceMotionBlurMatchName);
       forceMotionBlurEffect.property("Override Shutter Angle").setValue(0);
     }
     dropShadowEffect = this.effect(dropShadowMatchName);
     if (dropShadowEffect != null) {
       dropShadowEffect.remove();
     }
-    dropShadowEffect = this.effects().addProperty(dropShadowMatchName);
+    dropShadowEffect = this.addEffect(dropShadowMatchName);
     dropShadowEffect.property("Opacity").setValue(0.75 * 255);
     dropShadowEffect.property("Direction").setValue(125);
     dropShadowEffect.property("Distance").setValue(20);
@@ -7603,7 +7603,7 @@ NFPartComp = (function(superClass) {
         refLayer.moveAfter(layerAbove);
         controlLayer = target.getControlLayer();
         controlLayer.removeSpotlights();
-        expandLayerControl = bgSolid.effects().addProperty("ADBE Layer Control");
+        expandLayerControl = bgSolid.addEffect("ADBE Layer Control");
         expandLayerControl.name = "Expand Tracker";
         expandLayerControl.property("Layer").setValue(controlLayer.index());
         return this.setTime(currTime + model.settings.durations.expandTransition);
@@ -8359,7 +8359,7 @@ NFPartComp = (function(superClass) {
     webCompVisibleLayers.forEach((function(_this) {
       return function(theLayer, i, allLayers) {
         var matteEffect;
-        matteEffect = theLayer.effects().addProperty("ADBE Set Matte3");
+        matteEffect = theLayer.addEffect("ADBE Set Matte3");
         return matteEffect.property("Take Matte From Layer").setValue(1);
       };
     })(this));
@@ -8383,7 +8383,7 @@ NFPartComp = (function(superClass) {
     });
     webCompLayer.$.motionBlur = true;
     webCompLayer.effects().property("Start Offset").property("Slider").setValue(1660);
-    shadowProp = webCompLayer.effects().addProperty('ADBE Drop Shadow');
+    shadowProp = webCompLayer.addEffect('ADBE Drop Shadow');
     shadowProp.property('Opacity').setValue(51);
     shadowProp.property('Direction').setValue(0);
     shadowProp.property('Distance').setValue(10);

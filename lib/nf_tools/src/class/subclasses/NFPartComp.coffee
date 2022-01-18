@@ -415,7 +415,7 @@ class NFPartComp extends NFComp
         controlLayer = target.getControlLayer()
         controlLayer.removeSpotlights()
 
-        expandLayerControl = bgSolid.effects().addProperty("ADBE Layer Control")
+        expandLayerControl = bgSolid.addEffect("ADBE Layer Control")
         expandLayerControl.name = "Expand Tracker"
         expandLayerControl.property("Layer").setValue controlLayer.index()
 
@@ -1082,7 +1082,7 @@ class NFPartComp extends NFComp
     matteLayer.$.enabled = no
 
     webCompVisibleLayers.forEach (theLayer, i, allLayers) =>
-      matteEffect = theLayer.effects().addProperty("ADBE Set Matte3")
+      matteEffect = theLayer.addEffect("ADBE Set Matte3")
       matteEffect.property("Take Matte From Layer").setValue 1
 
     textLayer = webComp.addTextLayer
@@ -1105,7 +1105,7 @@ class NFPartComp extends NFComp
     webCompLayer.$.motionBlur = yes
 
     webCompLayer.effects().property("Start Offset").property("Slider").setValue(1660)
-    shadowProp = webCompLayer.effects().addProperty('ADBE Drop Shadow')
+    shadowProp = webCompLayer.addEffect('ADBE Drop Shadow')
     shadowProp.property('Opacity').setValue(51)
     shadowProp.property('Direction').setValue(0)
     shadowProp.property('Distance').setValue(10)

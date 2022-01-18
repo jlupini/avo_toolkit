@@ -294,7 +294,7 @@ getPanelUI = ->
         newMask.maskFeather.setValue [20,20]
         newMask.maskExpansion.setValue 3
         refLayer.effect("Drop Shadow").remove()
-        refLayer.effects().addProperty("ADBE Brightness & Contrast 2").property("Contrast").setValue(99)
+        refLayer.addEffect("ADBE Brightness & Contrast 2").property("Contrast").setValue(99)
         refLayer.$.blendingMode = BlendingMode.DARKEN
 
       # Create a white BG box and attach it to the ref layer

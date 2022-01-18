@@ -297,7 +297,7 @@ class NFComp extends NFObject
     highlightLayer.$.blendingMode = BlendingMode.MULTIPLY
 
     # Setup AV Highlighter
-    highlightProperty = highlightLayer.effects().addProperty('AV_Highlighter')
+    highlightProperty = highlightLayer.addEffect('AV_Highlighter')
     highlightProperty.property("Spacing").setValue paddedLineHeight
     highlightProperty.property("Thickness").setValue paddedLineHeight + 4
     yOffset = if model.lines is 1 then paddedLineHeight / 2 - yPadding else paddedLineHeight / 2 - yPadding * 2
@@ -308,7 +308,7 @@ class NFComp extends NFObject
 
     # Add a point Control for the rect hash if it exists
     if model.rectHash?
-      hashProp = highlightLayer.effects().addProperty('ADBE Point Control')
+      hashProp = highlightLayer.addEffect('ADBE Point Control')
       hashProp.property("Point").setValue model.rectHash
       hashProp.name = "Rect Hash"
 

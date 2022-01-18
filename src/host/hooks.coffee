@@ -467,7 +467,7 @@ try
     if selectedLayers.count() is 1 and selectedLayers.get(0) instanceof NFHighlightLayer
       rectHash = annotData.rectHash
 
-      hashProp = selectedLayers.get(0).effects().addProperty('ADBE Point Control')
+      hashProp = selectedLayers.get(0).addEffect('ADBE Point Control')
       hashProp.property("Point").setValue rectHash
       hashProp.name = "Rect Hash"
 

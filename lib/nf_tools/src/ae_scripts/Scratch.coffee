@@ -48,7 +48,7 @@ activeComp.addBrowserWindow activeComp.selectedLayers()
 #     time: 0
 #   matteLayer.$.enabled = no
 #
-#   matteEffect = footageLayer.effects().addProperty("ADBE Set Matte3")
+#   matteEffect = footageLayer.addEffect("ADBE Set Matte3")
 #   matteEffect.property("Take Matte From Layer").setValue 1
 #
 #   textLayer = webComp.addTextLayer
@@ -72,7 +72,7 @@ activeComp.addBrowserWindow activeComp.selectedLayers()
 #   webCompLayer.$.motionBlur = yes
 #
 #   webCompLayer.effects().property("Start Offset").property("Slider").setValue(1660)
-#   shadowProp = webCompLayer.effects().addProperty('ADBE Drop Shadow')
+#   shadowProp = webCompLayer.addEffect('ADBE Drop Shadow')
 #   shadowProp.property('Opacity').setValue(51)
 #   shadowProp.property('Direction').setValue(0)
 #   shadowProp.property('Distance').setValue(10)

@@ -776,7 +776,7 @@ class NFLayer extends NFObject
   @returns {Property} the slider property
   ###
   addSlider: (name, value) ->
-    slider = @effects().addProperty("ADBE Slider Control")
+    slider = @addEffect("ADBE Slider Control")
     slider.slider.setValue(value)
     slider.name = name
     return slider
@@ -1022,7 +1022,7 @@ class NFLayer extends NFObject
   @returns {Property} the drop shadow property
   ###
   addDropShadow: (model) ->
-    shadowProp = @effects().addProperty('ADBE Drop Shadow')
+    shadowProp = @addEffect('ADBE Drop Shadow')
     shadowProp.property('Opacity').setValue model?.opacity ? 76.5
     shadowProp.property('Direction').setValue model?.direction ? 152
     shadowProp.property('Distance').setValue model?.distance ? 20
