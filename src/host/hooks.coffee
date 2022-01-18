@@ -376,6 +376,16 @@ try
 
     app.endUndoGroup()
 
+  splitHighlightAtIndex = (idx) ->
+    app.beginUndoGroup "Split Highlight"
+    idx = parseInt idx
+
+    targetComp = NFProject.activeComp()
+    targetLayer = new NFHighlightLayer(targetComp.$.layer(idx))
+    targetLayer.split()
+
+    app.endUndoGroup()
+
   addGaussy = () ->
     app.beginUndoGroup "Add Gaussy"
     NFProject.activeComp().addGaussy()

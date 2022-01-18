@@ -1,4 +1,4 @@
-var addBrowser, addGaussy, applyFMFTransition, changeLineCountForHighlightAtIndex, clearFMFTransition, convertShapeToHighlight, createHighlightFromAnnotation, debug, deleteHighlightAtIndex, e, editDefaultsFile, emphasisLayerSelected, error, focusOn, getActivePageFile, getEmphasisProperties, getFullPDFTree, getPollingData, linkHighlightToSelectedLayer, makeEmphasisLayer, openComp, openDocument, processRawAnnotationData, runLayoutCommand, runTool, setBlendingMode, setEmphasisProperties, toggleGuideLayers, transitionClearIn, transitionClearOut, transitionFadeIn, transitionFadeOut, transitionFadeScaleIn, transitionFadeScaleOut, transitionSlideIn, transitionSlideOut, unlinkHighlightAtIndex;
+var addBrowser, addGaussy, applyFMFTransition, changeLineCountForHighlightAtIndex, clearFMFTransition, convertShapeToHighlight, createHighlightFromAnnotation, debug, deleteHighlightAtIndex, e, editDefaultsFile, emphasisLayerSelected, error, focusOn, getActivePageFile, getEmphasisProperties, getFullPDFTree, getPollingData, linkHighlightToSelectedLayer, makeEmphasisLayer, openComp, openDocument, processRawAnnotationData, runLayoutCommand, runTool, setBlendingMode, setEmphasisProperties, splitHighlightAtIndex, toggleGuideLayers, transitionClearIn, transitionClearOut, transitionFadeIn, transitionFadeOut, transitionFadeScaleIn, transitionFadeScaleOut, transitionSlideIn, transitionSlideOut, unlinkHighlightAtIndex;
 
 try {
   openDocument = function(location) {
@@ -473,6 +473,15 @@ try {
     idx = parseInt(idx);
     targetComp = NFProject.activeComp();
     targetComp.$.layer(idx).remove();
+    return app.endUndoGroup();
+  };
+  splitHighlightAtIndex = function(idx) {
+    var targetComp, targetLayer;
+    app.beginUndoGroup("Split Highlight");
+    idx = parseInt(idx);
+    targetComp = NFProject.activeComp();
+    targetLayer = new NFHighlightLayer(targetComp.$.layer(idx));
+    targetLayer.split();
     return app.endUndoGroup();
   };
   addGaussy = function() {

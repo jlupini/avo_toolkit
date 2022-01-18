@@ -204,7 +204,7 @@ $(document).ready(function() {
                       annotationDataString = JSON.stringify(annotation);
                       dispElement.data(annotationDataString);
                       if (matchClass.indexOf('matched') >= 0) {
-                        dispElement.append("<div class='action-buttons'> <div class='button-group'> <div class='delete'></div> </div> <div class='button-group'> <div class='add-line'></div> <div class='remove-line'></div> </div> <div class='button-group'> <div class='unlink'></div> </div> </div>");
+                        dispElement.append("<div class='action-buttons'> <div class='button-group'> <div class='delete'></div> </div> <div class='button-group'> <div class='add-line'></div> <div class='remove-line'></div> </div> <div class='button-group'> <div class='split-highlight'></div> </div> <div class='button-group'> <div class='unlink'></div> </div> </div>");
                         dispElement.find('.delete').click({}, function(e) {
                           var classNames, theExp, theIdx;
                           classNames = $(this).parent().parent().parent().attr('class');
@@ -230,12 +230,19 @@ $(document).ready(function() {
                           theIdx = parseInt(theExp.exec(classNames)[1]);
                           return hook("changeLineCountForHighlightAtIndex('" + theIdx + "', '-1')");
                         });
-                        results.push(dispElement.find('.unlink').click({}, function(e) {
+                        dispElement.find('.unlink').click({}, function(e) {
                           var classNames, theExp, theIdx;
                           classNames = $(this).parent().parent().parent().attr('class');
                           theExp = /match-(.*?)[\s]/g;
                           theIdx = parseInt(theExp.exec(classNames)[1]);
                           return hook("unlinkHighlightAtIndex('" + theIdx + "')");
+                        });
+                        results.push(dispElement.find('.split-highlight').click({}, function(e) {
+                          var classNames, theExp, theIdx;
+                          classNames = $(this).parent().parent().parent().attr('class');
+                          theExp = /match-(.*?)[\s]/g;
+                          theIdx = parseInt(theExp.exec(classNames)[1]);
+                          return hook("splitHighlightAtIndex('" + theIdx + "')");
                         }));
                       } else {
                         dispElement.append("<div class='action-buttons'> <div class='button-group'> <div class='add-magic'></div> </div> <div class='button-group'> <div class='add-manual'></div> </div> <div class='button-group'> <div class='link-existing'></div> </div> </div>");

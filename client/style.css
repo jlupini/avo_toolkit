@@ -584,6 +584,16 @@ li.annotation-item .action-buttons .button-group div.add-magic:hover {
   background-position: center;
   background-size: 20px;
 }
+li.annotation-item .action-buttons .button-group div.split-highlight {
+  background: #D5D5D5 url(assets/split.png) no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
+li.annotation-item .action-buttons .button-group div.split-highlight:hover {
+  background: white url(assets/split.png) no-repeat;
+  background-position: center;
+  background-size: 20px;
+}
 li.annotation-item .action-buttons .button-group div.link-existing {
   background: #D5D5D5 url(assets/link-existing.png) no-repeat;
   background-position: center;

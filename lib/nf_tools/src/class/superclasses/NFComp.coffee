@@ -312,6 +312,11 @@ class NFComp extends NFObject
       hashProp.property("Point").setValue model.rectHash
       hashProp.name = "Rect Hash"
 
+    # Add a split point Control
+    splitProp = highlightLayer.effects().addProperty('ADBE Point Control')
+    splitProp.property("Point").setValue [0,0]
+    splitProp.name = "Split Point"
+
     # Build the Lines
     mainContents = highlightLayer.property("ADBE Root Vectors Group")
 

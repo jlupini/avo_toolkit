@@ -464,7 +464,7 @@ NFComp = (function(superClass) {
    */
 
   NFComp.prototype.createHighlight = function(model) {
-    var currTime, group, hashProp, highlightLayer, highlightProperty, i, j, lineGroup, lineHeight, linePathProp, lineShape, lineStrokeProp, lineTrimProp, mainContents, paddedLineHeight, rect, ref, ref1, ref2, ref3, ref4, ref5, xPadding, yOffset, yPadding;
+    var currTime, group, hashProp, highlightLayer, highlightProperty, i, j, lineGroup, lineHeight, linePathProp, lineShape, lineStrokeProp, lineTrimProp, mainContents, paddedLineHeight, rect, ref, ref1, ref2, ref3, ref4, ref5, splitProp, xPadding, yOffset, yPadding;
     model = {
       shapeLayer: (function() {
         if ((ref = model.shapeLayer) != null) {
@@ -511,6 +511,9 @@ NFComp = (function(superClass) {
       hashProp.property("Point").setValue(model.rectHash);
       hashProp.name = "Rect Hash";
     }
+    splitProp = highlightLayer.effects().addProperty('ADBE Point Control');
+    splitProp.property("Point").setValue([0, 0]);
+    splitProp.name = "Split Point";
     mainContents = highlightLayer.property("ADBE Root Vectors Group");
     lineShape = new Shape();
     lineShape.vertices = [[rect.left - xPadding, rect.top], [rect.left + rect.width + xPadding, rect.top]];
@@ -4771,6 +4774,103 @@ NFHighlightLayer = (function(superClass) {
 
   NFHighlightLayer.prototype.highlighterEffect = function() {
     return this.$.Effects.property("AV_Highlighter");
+  };
+
+
+  /**
+  Returns the split point value
+  @memberof NFHighlightLayer
+  @returns {Array} the x and y points for the split
+   */
+
+  NFHighlightLayer.prototype.getSplitPoint = function() {
+    var ref, splitProp;
+    if (this.$.Effects.property("Split Point") == null) {
+      splitProp = highlightLayer.effects().addProperty('ADBE Point Control');
+      splitProp.property("Point").setValue([0, 0]);
+    }
+    return (ref = this.$.Effects.property("Split Point")) != null ? ref.property("Point").value : void 0;
+  };
+
+
+  /**
+  Sets the split point value, or resets it if no value passed
+  @memberof NFHighlightLayer
+   */
+
+  NFHighlightLayer.prototype.setSplitPoint = function(newPoint) {
+    if (newPoint == null) {
+      newPoint = [0, 0];
+    }
+    this.getSplitPoint();
+    return this.$.Effects.property("Split Point").property("Point").setValue(newPoint);
+  };
+
+
+  /**
+  Splits the highlight at the current Split Point, or alerts if that point is invalid
+  @memberof NFHighlightLayer
+   */
+
+  NFHighlightLayer.prototype.split = function() {
+    var closestDistanceSoFar, closestLine, currentLine, endOffset, expHighlightLines, expandLayer, highlightLines, i, j, k, l, lineCount, lineEndPoint, lineEndX, linePath, lineRelEndPoint, lineRelStartPoint, lineStartPoint, lineStartX, lineVerticies, linesToDelete, offset, offsetProp, ref, ref1, ref2, ref3, spacing, splitPercentage, splitPoint, splitX, splitY, startOffsetExp, verticalDistanceFromLine;
+    splitPoint = this.getSplitPoint();
+    splitX = splitPoint[0];
+    splitY = splitPoint[1];
+    if ((splitX === splitY && splitY === 0)) {
+      return alert("Please set a valid split point and try again");
+    }
+    if (this.property("Contents").property("Highlight Lines") == null) {
+      changeLineCount(0);
+    }
+    highlightLines = this.property("Contents").property("Highlight Lines").property("Contents");
+    lineCount = highlightLines.numProperties;
+    linePath = highlightLines.property(1).property("Contents").property("Line 1 Path").property("Path").value;
+    lineVerticies = linePath.vertices;
+    lineStartPoint = lineVerticies[0];
+    lineEndPoint = lineVerticies[1];
+    lineRelStartPoint = this.relativePoint(lineStartPoint);
+    lineRelEndPoint = this.relativePoint(lineEndPoint);
+    spacing = this.highlighterEffect().property("Spacing").value;
+    closestLine = null;
+    for (i = j = 1, ref = lineCount; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
+      currentLine = i;
+      verticalDistanceFromLine = Math.abs(lineRelStartPoint[1] + ((i - 1) * spacing) - splitY);
+      if ((typeof closestDistanceSoFar === "undefined" || closestDistanceSoFar === null) || verticalDistanceFromLine < closestDistanceSoFar) {
+        closestDistanceSoFar = verticalDistanceFromLine;
+        closestLine = currentLine;
+      }
+    }
+    lineStartX = lineRelStartPoint[0];
+    lineEndX = lineRelEndPoint[0];
+    splitPercentage = (splitX - lineStartX) / (lineEndX - lineStartX);
+    expandLayer = this.duplicate();
+    if (!this.getName().includes("Expand")) {
+      expandLayer.setName((this.getName()) + " Expand");
+    }
+    if (closestLine !== lineCount) {
+      for (i = k = ref1 = lineCount, ref2 = closestLine + 1; ref1 <= ref2 ? k <= ref2 : k >= ref2; i = ref1 <= ref2 ? ++k : --k) {
+        highlightLines.property(i).remove();
+      }
+    }
+    expHighlightLines = expandLayer.property("Contents").property("Highlight Lines").property("Contents");
+    linesToDelete = closestLine - 1;
+    if (linesToDelete !== 0) {
+      for (i = l = 1, ref3 = linesToDelete; 1 <= ref3 ? l <= ref3 : l >= ref3; i = 1 <= ref3 ? ++l : --l) {
+        expHighlightLines.property(lineCount - linesToDelete + 1).remove();
+      }
+    }
+    offsetProp = expandLayer.highlighterEffect().property("Offset");
+    offset = offsetProp.value;
+    offsetProp.setValue([offset[0], offset[1] + spacing * linesToDelete]);
+    endOffset = this.highlighterEffect().property("End Offset");
+    startOffsetExp = expandLayer.highlighterEffect().property("Start Offset");
+    startOffsetExp.setValue(100 * splitPercentage);
+    endOffset.setValue(100 * (1 - splitPercentage));
+    expandLayer.changeLineCount(0);
+    this.changeLineCount(0);
+    expandLayer.setSplitPoint();
+    return this.setSplitPoint();
   };
 
 

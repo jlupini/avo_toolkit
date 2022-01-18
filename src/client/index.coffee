@@ -216,6 +216,9 @@ $(document).ready ->
                                                 <div class='remove-line'></div>
                                               </div>
                                               <div class='button-group'>
+                                                <div class='split-highlight'></div>
+                                              </div>
+                                              <div class='button-group'>
                                                 <div class='unlink'></div>
                                               </div>
                                             </div>"
@@ -239,6 +242,11 @@ $(document).ready ->
                           theExp = /match-(.*?)[\s]/g
                           theIdx = parseInt(theExp.exec(classNames)[1])
                           hook "unlinkHighlightAtIndex('#{theIdx}')"
+                        dispElement.find('.split-highlight').click {}, (e) ->
+                          classNames = $(this).parent().parent().parent().attr('class')
+                          theExp = /match-(.*?)[\s]/g
+                          theIdx = parseInt(theExp.exec(classNames)[1])
+                          hook "splitHighlightAtIndex('#{theIdx}')"
                       else
                         dispElement.append "<div class='action-buttons'>
                                               <div class='button-group'>

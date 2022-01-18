@@ -133,6 +133,100 @@ class NFHighlightLayer extends NFLayer
     return @$.Effects.property("AV_Highlighter")
 
   ###*
+  Returns the split point value
+  @memberof NFHighlightLayer
+  @returns {Array} the x and y points for the split
+  ###
+  getSplitPoint: ->
+    unless @$.Effects.property("Split Point")?
+      splitProp = highlightLayer.effects().addProperty('ADBE Point Control')
+      splitProp.property("Point").setValue [0,0]
+
+    return @$.Effects.property("Split Point")?.property("Point").value
+
+  ###*
+  Sets the split point value, or resets it if no value passed
+  @memberof NFHighlightLayer
+  ###
+  setSplitPoint: (newPoint = [0,0]) ->
+    @getSplitPoint() # This is just to make sure the split point exists
+    return @$.Effects.property("Split Point").property("Point").setValue newPoint
+
+  ###*
+  Splits the highlight at the current Split Point, or alerts if that point is invalid
+  @memberof NFHighlightLayer
+  ###
+  split: ->
+    splitPoint = @getSplitPoint()
+    splitX = splitPoint[0]
+    splitY = splitPoint[1]
+
+    return alert "Please set a valid split point and try again" if splitX is splitY is 0
+
+    # Convert if it's an old-style highlight by using changeLineCount with a delta of 0
+    changeLineCount 0 unless @property("Contents").property("Highlight Lines")?
+    highlightLines = @property("Contents").property("Highlight Lines").property("Contents")
+    lineCount = highlightLines.numProperties
+
+    # Let's figure out which line is closest to the point
+    # To do this, we only care about the Y value
+    linePath = highlightLines.property(1).property("Contents").property("Line 1 Path").property("Path").value
+    lineVerticies = linePath.vertices
+
+    lineStartPoint = lineVerticies[0]
+    lineEndPoint = lineVerticies[1]
+
+    lineRelStartPoint = @relativePoint lineStartPoint
+    lineRelEndPoint = @relativePoint lineEndPoint
+
+    spacing = @highlighterEffect().property("Spacing").value
+
+    closestLine = null
+    for i in [1..lineCount]
+      currentLine = i
+      verticalDistanceFromLine = Math.abs(lineRelStartPoint[1] + ((i-1) * spacing) - splitY)
+      if not closestDistanceSoFar? or verticalDistanceFromLine < closestDistanceSoFar
+        closestDistanceSoFar = verticalDistanceFromLine
+        closestLine = currentLine
+
+    lineStartX = lineRelStartPoint[0]
+    lineEndX = lineRelEndPoint[0]
+
+    splitPercentage = (splitX - lineStartX) / (lineEndX - lineStartX)
+
+    expandLayer = @duplicate()
+    expandLayer.setName "#{@getName()} Expand" unless @getName().includes("Expand")
+
+    # Delete all the lines after the closest line on this layer
+    unless closestLine is lineCount
+      for i in [lineCount..closestLine+1]
+        highlightLines.property(i).remove()
+    # Delete all the lines before the closest line on the expand
+    expHighlightLines = expandLayer.property("Contents").property("Highlight Lines").property("Contents")
+    linesToDelete = closestLine - 1
+    unless linesToDelete is 0
+      for i in [1..linesToDelete]
+        expHighlightLines.property(lineCount-linesToDelete+1).remove()
+
+    offsetProp = expandLayer.highlighterEffect().property("Offset")
+    offset = offsetProp.value
+    offsetProp.setValue [offset[0], offset[1] + spacing * linesToDelete]
+
+    # startOffset = @highlighterEffect().property("Start Offset")
+    endOffset = @highlighterEffect().property("End Offset")
+    startOffsetExp = expandLayer.highlighterEffect().property("Start Offset")
+    # endOffsetExp = expandLayer.highlighterEffect().property("End Offset")
+
+    startOffsetExp.setValue 100 * splitPercentage
+    endOffset.setValue 100 * (1 - splitPercentage)
+
+    expandLayer.changeLineCount 0
+    @changeLineCount 0
+
+    expandLayer.setSplitPoint()
+    @setSplitPoint()
+
+  ###*
   Change line count by the given amount
   @memberof NFHighlightLayer
   @returns {NFHighlightLayer} self
