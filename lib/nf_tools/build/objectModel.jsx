@@ -511,7 +511,7 @@ NFComp = (function(superClass) {
       hashProp.property("Point").setValue(model.rectHash);
       hashProp.name = "Rect Hash";
     }
-    splitProp = highlightLayer.effects().addProperty('ADBE Point Control');
+    splitProp = highlightLayer.addEffect('ADBE Point Control');
     splitProp.property("Point").setValue([0, 0]);
     splitProp.name = "Split Point";
     mainContents = highlightLayer.property("ADBE Root Vectors Group");
@@ -1104,6 +1104,19 @@ NFLayer = (function(superClass) {
 
   NFLayer.prototype.effect = function(effectName) {
     return this.$.Effects.property(effectName);
+  };
+
+
+  /**
+  Adds a new effect to the layer with a given matchname
+  Uses `Effects.addProperty(matchName)``
+  @memberof NFLayer
+  @param {string} matchName - the match name of the effect to add
+  @returns {Property | null} the property or null if not found
+   */
+
+  NFLayer.prototype.addEffect = function(matchName) {
+    return this.$.Effects.addProperty(matchName);
   };
 
 
@@ -4784,12 +4797,8 @@ NFHighlightLayer = (function(superClass) {
    */
 
   NFHighlightLayer.prototype.getSplitPoint = function() {
-    var ref, splitProp;
-    if (this.$.Effects.property("Split Point") == null) {
-      splitProp = highlightLayer.effects().addProperty('ADBE Point Control');
-      splitProp.property("Point").setValue([0, 0]);
-    }
-    return (ref = this.$.Effects.property("Split Point")) != null ? ref.property("Point").value : void 0;
+    var ref;
+    return (ref = this.effect("Split Point")) != null ? ref.property("Point").value : void 0;
   };
 
 
@@ -4799,11 +4808,15 @@ NFHighlightLayer = (function(superClass) {
    */
 
   NFHighlightLayer.prototype.setSplitPoint = function(newPoint) {
+    var splitProp;
     if (newPoint == null) {
       newPoint = [0, 0];
     }
-    this.getSplitPoint();
-    return this.$.Effects.property("Split Point").property("Point").setValue(newPoint);
+    if (this.effect("Split Point") == null) {
+      splitProp = this.addEffect('ADBE Point Control');
+      splitProp.name = "Split Point";
+    }
+    return this.effect("Split Point").property("Point").setValue(newPoint);
   };
 
 
@@ -4815,6 +4828,9 @@ NFHighlightLayer = (function(superClass) {
   NFHighlightLayer.prototype.split = function() {
     var closestDistanceSoFar, closestLine, currentLine, endOffset, expHighlightLines, expandLayer, highlightLines, i, j, k, l, lineCount, lineEndPoint, lineEndX, linePath, lineRelEndPoint, lineRelStartPoint, lineStartPoint, lineStartX, lineVerticies, linesToDelete, offset, offsetProp, ref, ref1, ref2, ref3, spacing, splitPercentage, splitPoint, splitX, splitY, startOffsetExp, verticalDistanceFromLine;
     splitPoint = this.getSplitPoint();
+    if (splitPoint == null) {
+      return this.setSplitPoint();
+    }
     splitX = splitPoint[0];
     splitY = splitPoint[1];
     if ((splitX === splitY && splitY === 0)) {

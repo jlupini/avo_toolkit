@@ -313,7 +313,8 @@ class NFComp extends NFObject
       hashProp.name = "Rect Hash"
 
     # Add a split point Control
-    splitProp = highlightLayer.effects().addProperty('ADBE Point Control')
+    # FIXME: This duplicates functionality in NFHighlightLayer - get rid of it here
+    splitProp = highlightLayer.addEffect('ADBE Point Control')
     splitProp.property("Point").setValue [0,0]
     splitProp.name = "Split Point"
 

@@ -262,6 +262,16 @@ class NFLayer extends NFObject
     return @$.Effects.property(effectName)
 
   ###*
+  Adds a new effect to the layer with a given matchname
+  Uses `Effects.addProperty(matchName)``
+  @memberof NFLayer
+  @param {string} matchName - the match name of the effect to add
+  @returns {Property | null} the property or null if not found
+  ###
+  addEffect: (matchName) ->
+    return @$.Effects.addProperty(matchName)
+
+  ###*
   Returns the root property on the layer with the given name. Saves you a `.layer`
   when accessing in other classes
   @memberof NFLayer

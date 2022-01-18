@@ -138,19 +138,17 @@ class NFHighlightLayer extends NFLayer
   @returns {Array} the x and y points for the split
   ###
   getSplitPoint: ->
-    unless @$.Effects.property("Split Point")?
-      splitProp = highlightLayer.effects().addProperty('ADBE Point Control')
-      splitProp.property("Point").setValue [0,0]
-
-    return @$.Effects.property("Split Point")?.property("Point").value
+    return @effect("Split Point")?.property("Point").value
 
   ###*
   Sets the split point value, or resets it if no value passed
   @memberof NFHighlightLayer
   ###
   setSplitPoint: (newPoint = [0,0]) ->
-    @getSplitPoint() # This is just to make sure the split point exists
-    return @$.Effects.property("Split Point").property("Point").setValue newPoint
+    unless @effect("Split Point")?
+      splitProp = @addEffect 'ADBE Point Control'
+      splitProp.name = "Split Point"
+    return @effect("Split Point").property("Point").setValue newPoint
 
   ###*
   Splits the highlight at the current Split Point, or alerts if that point is invalid
@@ -158,6 +156,9 @@ class NFHighlightLayer extends NFLayer
   ###
   split: ->
     splitPoint = @getSplitPoint()
+    if not splitPoint?
+      return @setSplitPoint()
+
     splitX = splitPoint[0]
     splitY = splitPoint[1]
 
