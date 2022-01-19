@@ -1104,7 +1104,7 @@ class NFPartComp extends NFComp
       fromEdge: NFComp.BOTTOM
     webCompLayer.$.motionBlur = yes
 
-    webCompLayer.effects().property("Start Offset").property("Slider").setValue(1660)
+    webCompLayer.effect("Start Offset").property("Slider").setValue(1660)
     shadowProp = webCompLayer.addEffect('ADBE Drop Shadow')
     shadowProp.property('Opacity').setValue(51)
     shadowProp.property('Direction').setValue(0)

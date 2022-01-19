@@ -502,7 +502,7 @@ try {
     idx = parseInt(idx);
     targetComp = NFProject.activeComp();
     targetLayer = new NFHighlightLayer(targetComp.$.layer(idx));
-    targetLayer.effects().property("Rect Hash").remove();
+    targetLayer.effect("Rect Hash").remove();
     return app.endUndoGroup();
   };
   changeLineCountForHighlightAtIndex = function(idx, delta) {

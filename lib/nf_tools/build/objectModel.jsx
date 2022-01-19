@@ -4886,7 +4886,8 @@ NFHighlightLayer = (function(superClass) {
     expandLayer.changeLineCount(0);
     this.changeLineCount(0);
     expandLayer.setSplitPoint();
-    return this.setSplitPoint();
+    this.setSplitPoint();
+    return expandLayer.effect("Rect Hash").remove();
   };
 
 
@@ -8382,7 +8383,7 @@ NFPartComp = (function(superClass) {
       fromEdge: NFComp.BOTTOM
     });
     webCompLayer.$.motionBlur = true;
-    webCompLayer.effects().property("Start Offset").property("Slider").setValue(1660);
+    webCompLayer.effect("Start Offset").property("Slider").setValue(1660);
     shadowProp = webCompLayer.addEffect('ADBE Drop Shadow');
     shadowProp.property('Opacity').setValue(51);
     shadowProp.property('Direction').setValue(0);

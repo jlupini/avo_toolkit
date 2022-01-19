@@ -227,6 +227,8 @@ class NFHighlightLayer extends NFLayer
     expandLayer.setSplitPoint()
     @setSplitPoint()
 
+    expandLayer.effect("Rect Hash").remove()
+
   ###*
   Change line count by the given amount
   @memberof NFHighlightLayer
