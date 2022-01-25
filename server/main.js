@@ -121,11 +121,11 @@ run = function() {
             prevItem = {};
             mergeCount = 0;
             content.items.forEach(function(item) {
-              var combinedItem, fontHeight, mergedRect, newItem, tx;
+              var combinedItem, combinedStrings, fontHeight, mergedRect, newItem, tx;
               tx = pdfjsLib.Util.transform(viewport.transform, item.transform);
               fontHeight = Math.sqrt((tx[2] * tx[2]) + (tx[3] * tx[3]));
               newItem = {
-                str: item.str,
+                str: item.str.replace("\"", "\\\""),
                 fontHeight: fontHeight,
                 width: round(item.width),
                 height: round(item.height),
@@ -137,9 +137,10 @@ run = function() {
               }
               if ((prevItem != null) && (Math.abs(prevItem.top - newItem.top) < prevItem.height)) {
                 mergedRect = merge(prevItem, newItem);
+                combinedStrings = prevItem.str + " // " + newItem.str;
                 mergeCount++;
                 combinedItem = {
-                  str: prevItem.str + " // " + newItem.str,
+                  str: combinedStrings,
                   width: round(mergedRect.width),
                   height: round(mergedRect.height),
                   left: round(mergedRect.left),

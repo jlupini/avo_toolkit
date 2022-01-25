@@ -100,7 +100,7 @@ run = ->
               fontHeight = Math.sqrt((tx[2] * tx[2]) + (tx[3] * tx[3]))
 
               newItem =
-                str: item.str
+                str: item.str.replace "\"", "\\\""
                 # tx: tx
                 fontHeight: fontHeight
                 width: round(item.width)
@@ -114,10 +114,11 @@ run = ->
               # console.log "Ding:  #{Math.abs(prevItem.top - newItem.top) < prevItem.height}"
               if prevItem? and ( Math.abs(prevItem.top - newItem.top) < prevItem.height )
                 mergedRect = merge prevItem, newItem
+                combinedStrings = "#{prevItem.str} // #{newItem.str}"
                 # console.log "merged"
                 mergeCount++
                 combinedItem =
-                  str: "#{prevItem.str} // #{newItem.str}"
+                  str: combinedStrings
                   width: round(mergedRect.width)
                   height: round(mergedRect.height)
                   left: round(mergedRect.left)
