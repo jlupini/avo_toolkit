@@ -18,7 +18,7 @@
             "name": "Current File (2022)",
             "program": "${file}",
             // "trace": true,
-            "targetSpecifier": "aftereffects-19.0",
+            "targetSpecifier": "aftereffects-22.0",
             "engineName": "main"
         },
         {
