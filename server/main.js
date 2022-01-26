@@ -1,6 +1,6 @@
 
 /* npm Modules */
-var app, bodyParser, express, fs, http, httpServer, jlpdf, path, pdfjsLib, pdfjsWorker, request, run;
+var app, bodyParser, escapeQuotes, express, fs, http, httpServer, jlpdf, path, pdfjsLib, pdfjsWorker, request, run;
 
 express = require('express');
 
@@ -25,6 +25,11 @@ fs = require('fs');
 httpServer = http.Server(app);
 
 jlpdf = require("./jlpdf.js");
+
+escapeQuotes = function(inString) {
+  var escapedString;
+  return escapedString = inString.replace("\"", "\\\"").replace("'", "<<").replace("'", ">>");
+};
 
 run = function() {
   var hostname, port;
@@ -125,7 +130,7 @@ run = function() {
               tx = pdfjsLib.Util.transform(viewport.transform, item.transform);
               fontHeight = Math.sqrt((tx[2] * tx[2]) + (tx[3] * tx[3]));
               newItem = {
-                str: item.str.replace("\"", "\\\""),
+                str: escapeQuotes(item.str),
                 fontHeight: fontHeight,
                 width: round(item.width),
                 height: round(item.height),

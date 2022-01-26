@@ -17,6 +17,9 @@ httpServer = http.Server(app)
 # Import Local Classes and files
 jlpdf = require "./jlpdf.js"
 
+escapeQuotes = (inString) ->
+  escapedString = inString.replace("\"", "\\\"").replace("'", "<<").replace("'", ">>")
+
 run = ->
   port = 3200
   hostname = 'localhost'
@@ -100,7 +103,7 @@ run = ->
               fontHeight = Math.sqrt((tx[2] * tx[2]) + (tx[3] * tx[3]))
 
               newItem =
-                str: item.str.replace "\"", "\\\""
+                str: escapeQuotes(item.str)
                 # tx: tx
                 fontHeight: fontHeight
                 width: round(item.width)
