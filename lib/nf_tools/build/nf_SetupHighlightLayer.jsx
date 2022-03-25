@@ -181,8 +181,8 @@ splitHighlightAtPoint = function(splitterPoint) {
   highlighterEffect = _.selectedLayer.property("Effects").property("AV Highlighter");
   highlighterThickness = highlighterEffect.property("Thickness");
   highlighterSpacing = highlighterEffect.property("Spacing");
-  if (highlighterThickness.value > highlighterSpacing.value + 1) {
-    highlighterThickness.setValue(highlighterSpacing.value + 1);
+  if (highlighterThickness.value > highlighterSpacing.value) {
+    highlighterThickness.setValue(highlighterSpacing.value);
   }
   originalHighlightLayer = _.selectedLayer;
   newHighlightLayer = originalHighlightLayer.duplicate();
