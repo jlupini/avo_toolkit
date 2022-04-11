@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
     return csInterface.evalScript(hookString, callback);
   };
-  hook("var i, len, nfInclude, path, includePaths; var includePaths = $.includePath.split(';'); for (i = 0, len = includePaths.length; i < len; i++) { path = includePaths[i]; if (path.indexOf('jl_pdf_manager') >= 0) { nfInclude = path; } } $.evalFile(nfInclude + '/../lib/nf_tools/build/runtimeLibraries.jsx');");
+  hook("var i, len, nfInclude, path, includePaths; var includePaths = $.includePath.split(';'); for (i = 0, len = includePaths.length; i < len; i++) { path = includePaths[i]; if (path.indexOf('avo_toolkit') >= 0) { nfInclude = path; } } $.evalFile(nfInclude + '/../lib/nf_tools/build/runtimeLibraries.jsx');");
   latestAnnotationData = {};
   smartTimer = null;
   POLLING_INTERVAL = 1000;
@@ -330,15 +330,12 @@ $(document).ready(function() {
       var data, requestTime;
       requestTime = new Date() - startInterval;
       console.log("polling data returned (" + (smartTimer != null ? timerCounter : "one-time") + ") - " + requestTime + "ms");
-      if (res == null) {
-        return console.log("empty result!");
-      }
       if (requestTime > POLLING_TIMEOUT && (smartTimer != null)) {
         timerCounter = 0;
         $('#smart-toggle').click();
         return console.log("turning off smart updates - request took too long");
       }
-      if (res.length === 0) {
+      if ((res == null) || res.length === 0 || res.indexOf("Error") === 0) {
         displayError("got nothing back from polling hook!");
         return $("body").removeClass();
       } else {

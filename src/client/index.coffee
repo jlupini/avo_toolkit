@@ -27,7 +27,7 @@ $(document).ready ->
         var includePaths = $.includePath.split(';');
         for (i = 0, len = includePaths.length; i < len; i++) {
           path = includePaths[i];
-          if (path.indexOf('jl_pdf_manager') >= 0) {
+          if (path.indexOf('avo_toolkit') >= 0) {
             nfInclude = path;
           }
         }
@@ -335,15 +335,12 @@ $(document).ready ->
       requestTime = new Date() - startInterval
       console.log "polling data returned (#{if smartTimer? then timerCounter else "one-time"}) - #{requestTime}ms"
 
-      if not res?
-        return console.log "empty result!"
-
       if requestTime > POLLING_TIMEOUT and smartTimer?
         timerCounter = 0
         $('#smart-toggle').click()
         return console.log "turning off smart updates - request took too long"
 
-      if res.length is 0
+      if not res? or res.length is 0 or res.indexOf("Error") is 0
         displayError "got nothing back from polling hook!"
         $("body").removeClass()
       else
