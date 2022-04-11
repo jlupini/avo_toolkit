@@ -316,15 +316,12 @@ $(document).ready(function() {
       var data, requestTime;
       requestTime = new Date() - startInterval;
       console.log("polling data returned (" + (smartTimer != null ? timerCounter : "one-time") + ") - " + requestTime + "ms");
-      if (res == null) {
-        return console.log("empty result!");
-      }
       if (requestTime > POLLING_TIMEOUT && (smartTimer != null)) {
         timerCounter = 0;
         $('#smart-toggle').click();
         return console.log("turning off smart updates - request took too long");
       }
-      if (res.length === 0) {
+      if ((res == null) || res.length === 0 || res.indexOf("Error") === 0) {
         displayError("got nothing back from polling hook!");
         return $("body").removeClass();
       } else {
