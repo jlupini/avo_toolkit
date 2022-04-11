@@ -274,6 +274,35 @@ $(document).ready ->
                         dispElement.find('.link-existing').click {param: annotationDataString}, (e) ->
                           hook "linkHighlightToSelectedLayer('#{e.data.param}')"
 
+                  # Show an unlinked AE-only highlight if selected
+                  if $('body').data().bodyClass.indexOf("NFHighlightLayer") >= 0
+                    selectedHLEffects = $('body').data().effects
+                    hashFound = no
+                    for theEffect in selectedHLEffects
+                      hashFound = yes if theEffect.name is "Rect Hash"
+                    unless hashFound
+                      # dispID = "annotation-#{annotHash[0]}-#{annotHash[1]}"
+                      # colorClassName = annotation.colorName.replace(/\s+/g, '-').toLowerCase()
+                      disp.append "<li id='annotation-selected' class='annotation-item white'></li>"
+                      dispElement = $("#annotation-selected")
+                      dispElement.append "<div class='clean-name'>Selected Highlight</div>
+                                          <div class='highlight-text'>Layer name: \"#{$('body').data().selectedLayers[0].name}\"</div>"
+                      dispElement.append "<div class='action-buttons'>
+                                            <div class='button-group'>
+                                              <div class='delete'></div>
+                                            </div>
+                                            <div class='button-group'>
+                                              <div class='add-line'></div>
+                                              <div class='remove-line'></div>
+                                            </div>
+                                            <div class='button-group'>
+                                              <div class='split-highlight'></div>
+                                            </div>
+                                            <div class='button-group'>
+                                              <div class='unlink'></div>
+                                            </div>
+                                          </div>"
+
 
               error: (jqXHR, textStatus, errorThrown) ->
                 console.log "Error: #{errorThrown}, #{jqXHR.responseJSON}"

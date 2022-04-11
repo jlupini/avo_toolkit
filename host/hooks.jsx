@@ -324,7 +324,7 @@ try {
     }
   };
   getPollingData = function() {
-    var activeComp, activePage, aeqLayer, allLayers, compType, e, error, highlightLayers, i, j, k, l, layerType, model, prevLayer, ref, ref1, ref2, ref3, ref4, selectedAVLayers, selectedLayer, simpLayer, singleSelectedLayerSimplified, thisLayer;
+    var activeComp, activePage, aeqLayer, allLayers, compType, e, error, highlightLayers, i, j, k, l, layerType, model, prevLayer, ref, ref1, ref2, ref3, ref4, ref5, selectedAVLayers, selectedLayer, simpLayer, singleSelectedLayerSimplified, thisLayer;
     model = {};
     activeComp = app.project.activeItem;
     if (activeComp == null) {
@@ -332,99 +332,101 @@ try {
     }
     try {
       if ((activeComp != null) && activeComp instanceof CompItem) {
-        compType = activeComp.simpleReflection()["class"];
-        if (compType === "NFPartComp") {
-          activePage = null;
-          allLayers = activeComp.layers;
-          if (allLayers.length !== 0) {
-            prevLayer = null;
-            for (i = j = 1, ref = allLayers.length; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
-              thisLayer = allLayers[i];
-              if (((ref1 = thisLayer.source) != null ? ref1.name.includes("NFPage") : void 0) && !thisLayer.name.includes('[ref]') && thisLayer.opacity.value !== 0 && (thisLayer.inPoint <= (ref2 = activeComp.time) && ref2 <= thisLayer.outPoint)) {
-                if (prevLayer != null) {
-                  if (thisLayer.index < prevLayer.index) {
+        if (activeComp.simpleReflection != null) {
+          compType = activeComp.simpleReflection()["class"];
+          if (compType === "NFPartComp") {
+            activePage = null;
+            allLayers = activeComp.layers;
+            if (allLayers.length !== 0) {
+              prevLayer = null;
+              for (i = j = 1, ref = allLayers.length; 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
+                thisLayer = allLayers[i];
+                if (((ref1 = thisLayer.source) != null ? ref1.name.includes("NFPage") : void 0) && !thisLayer.name.includes('[ref]') && thisLayer.opacity.value !== 0 && (thisLayer.inPoint <= (ref2 = activeComp.time) && ref2 <= thisLayer.outPoint)) {
+                  if (prevLayer != null) {
+                    if (thisLayer.index < prevLayer.index) {
+                      activePage = thisLayer;
+                    }
+                  } else {
                     activePage = thisLayer;
                   }
-                } else {
-                  activePage = thisLayer;
+                  prevLayer = thisLayer;
                 }
-                prevLayer = thisLayer;
               }
             }
-          }
-          if (activePage != null) {
-            model.activePDF = activePage.source.getPDFNumber();
-            model.activePage = activePage.simpleReflection();
-          }
-        } else if (compType === "NFPageComp") {
-          allLayers = activeComp.layers;
-          highlightLayers = [];
-          if (allLayers.length !== 0) {
-            prevLayer = null;
-            for (i = k = 1, ref3 = allLayers.length; 1 <= ref3 ? k <= ref3 : k >= ref3; i = 1 <= ref3 ? ++k : --k) {
-              thisLayer = allLayers[i];
-              if (thisLayer instanceof ShapeLayer) {
-                if (thisLayer.property("Effects").property("AV Highlighter") != null) {
-                  if (thisLayer.property("Effects").property("Rect Hash") != null) {
+            if (activePage != null) {
+              model.activePDF = activePage.source.getPDFNumber();
+              model.activePage = activePage.simpleReflection();
+            }
+          } else if (compType === "NFPageComp") {
+            allLayers = activeComp.layers;
+            highlightLayers = [];
+            if (allLayers.length !== 0) {
+              prevLayer = null;
+              for (i = k = 1, ref3 = allLayers.length; 1 <= ref3 ? k <= ref3 : k >= ref3; i = 1 <= ref3 ? ++k : --k) {
+                thisLayer = allLayers[i];
+                if (thisLayer instanceof ShapeLayer) {
+                  if (thisLayer.property("Effects").property("AV Highlighter") != null) {
                     highlightLayers.push({
                       name: thisLayer.name,
                       index: thisLayer.index,
-                      rectHash: thisLayer.property("Effects").property("Rect Hash").property("Point").value
+                      rectHash: (ref4 = thisLayer.property("Effects").property("Rect Hash")) != null ? ref4.property("Point").value : void 0
                     });
                   }
                 }
               }
             }
+            model.highlightLayers = highlightLayers;
           }
-          model.highlightLayers = highlightLayers;
-        }
-        selectedAVLayers = activeComp.selectedLayers;
-        if (selectedAVLayers.length === 0) {
-          layerType = "no-layer";
-        } else if (selectedAVLayers.length === 1) {
-          selectedLayer = selectedAVLayers[0];
-          singleSelectedLayerSimplified = selectedLayer.simpleReflection();
-          layerType = singleSelectedLayerSimplified["class"];
-          model.effects = [];
-          aeqLayer = new aeq.Layer(selectedLayer);
-          aeqLayer.forEachEffect((function(_this) {
-            return function(e, i) {
-              var effectIndex;
-              if (e.matchName.includes("AV_")) {
-                model.effects.push({
-                  name: e.name,
-                  matchName: e.matchName,
-                  properties: {}
-                });
-                effectIndex = model.effects.length - 1;
-                return e.forEach(function(prop) {
-                  return model.effects[effectIndex].properties[prop.name] = {
-                    value: prop.value
-                  };
-                });
-              }
-            };
-          })(this));
+          selectedAVLayers = activeComp.selectedLayers;
+          if (selectedAVLayers.length === 0) {
+            layerType = "no-layer";
+          } else if (selectedAVLayers.length === 1) {
+            selectedLayer = selectedAVLayers[0];
+            singleSelectedLayerSimplified = selectedLayer.simpleReflection();
+            layerType = singleSelectedLayerSimplified["class"];
+            model.effects = [];
+            aeqLayer = new aeq.Layer(selectedLayer);
+            aeqLayer.forEachEffect((function(_this) {
+              return function(e, i) {
+                var effectIndex;
+                if (e.matchName.includes("AV_") || e.name.includes("Split Point") || e.name.includes("Rect Hash")) {
+                  model.effects.push({
+                    name: e.name,
+                    matchName: e.matchName,
+                    properties: {}
+                  });
+                  effectIndex = model.effects.length - 1;
+                  return e.forEach(function(prop) {
+                    return model.effects[effectIndex].properties[prop.name] = {
+                      value: prop.value
+                    };
+                  });
+                }
+              };
+            })(this));
+          } else {
+            layerType = "multiple-layers";
+          }
+          model.selectedLayers = [];
+          if (singleSelectedLayerSimplified != null) {
+            model.selectedLayers.push(singleSelectedLayerSimplified);
+          } else if (selectedAVLayers.length > 0) {
+            for (i = l = 0, ref5 = selectedAVLayers.length - 1; 0 <= ref5 ? l <= ref5 : l >= ref5; i = 0 <= ref5 ? ++l : --l) {
+              simpLayer = selectedAVLayers[i].simpleReflection();
+              model.selectedLayers.push(simpLayer);
+            }
+          }
+          model.bodyClass = layerType + " " + compType;
         } else {
-          layerType = "multiple-layers";
+          return new Error("Cannot get polling data — the active comp doesn't have a simpleReflection method");
         }
-        model.selectedLayers = [];
-        if (singleSelectedLayerSimplified != null) {
-          model.selectedLayers.push(singleSelectedLayerSimplified);
-        } else if (selectedAVLayers.length > 0) {
-          for (i = l = 0, ref4 = selectedAVLayers.length - 1; 0 <= ref4 ? l <= ref4 : l >= ref4; i = 0 <= ref4 ? ++l : --l) {
-            simpLayer = selectedAVLayers[i].simpleReflection();
-            model.selectedLayers.push(simpLayer);
-          }
-        }
-        model.bodyClass = layerType + " " + compType;
       } else {
         model.bodyClass = "no-comp";
       }
       return JSON.stringify(model);
     } catch (error) {
       e = error;
-      return alert("Error calling hook `getPollingData`: " + e.message);
+      return new Error("Cannot get polling data. Failed with message: " + e.message);
     }
   };
   getActivePageFile = function() {

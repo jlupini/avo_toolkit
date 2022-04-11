@@ -171,17 +171,16 @@ $(document).ready(function() {
                 filepath: result
               },
               success: function(response) {
-                var annotHash, annotation, annotationDataString, colorClassName, dispElement, dispID, existingHighlights, highlightLayer, i, j, l, len, len1, m, matchClass, results;
+                var annotHash, annotation, annotationDataString, colorClassName, dispElement, dispID, existingHighlights, hashFound, highlightLayer, i, j, l, len, len1, len2, m, matchClass, n, selectedHLEffects, theEffect;
                 if (JSON.stringify(response) === JSON.stringify(latestAnnotationData)) {
 
                 } else {
                   latestAnnotationData = response;
                   disp.empty();
                   if (response.length === 0) {
-                    return disp.append("<p class='no-annotations-found'>No annotations found in this PDF</p>");
+                    disp.append("<p class='no-annotations-found'>No annotations found in this PDF</p>");
                   } else {
                     console.log(response);
-                    results = [];
                     for (i = l = 0, len = response.length; l < len; i = ++l) {
                       annotation = response[i];
                       annotHash = rectHash(annotation.rect);
@@ -237,13 +236,13 @@ $(document).ready(function() {
                           theIdx = parseInt(theExp.exec(classNames)[1]);
                           return hook("unlinkHighlightAtIndex('" + theIdx + "')");
                         });
-                        results.push(dispElement.find('.split-highlight').click({}, function(e) {
+                        dispElement.find('.split-highlight').click({}, function(e) {
                           var classNames, theExp, theIdx;
                           classNames = $(this).parent().parent().parent().attr('class');
                           theExp = /match-(.*?)[\s]/g;
                           theIdx = parseInt(theExp.exec(classNames)[1]);
                           return hook("splitHighlightAtIndex('" + theIdx + "')");
-                        }));
+                        });
                       } else {
                         dispElement.append("<div class='action-buttons'> <div class='button-group'> <div class='add-magic'></div> </div> <div class='button-group'> <div class='add-manual'></div> </div> <div class='button-group'> <div class='link-existing'></div> </div> </div>");
                         dispElement.find('.add-magic').click({
@@ -266,14 +265,29 @@ $(document).ready(function() {
                             }
                           });
                         });
-                        results.push(dispElement.find('.link-existing').click({
+                        dispElement.find('.link-existing').click({
                           param: annotationDataString
                         }, function(e) {
                           return hook("linkHighlightToSelectedLayer('" + e.data.param + "')");
-                        }));
+                        });
                       }
                     }
-                    return results;
+                  }
+                  if ($('body').data().bodyClass.indexOf("NFHighlightLayer") >= 0) {
+                    selectedHLEffects = $('body').data().effects;
+                    hashFound = false;
+                    for (n = 0, len2 = selectedHLEffects.length; n < len2; n++) {
+                      theEffect = selectedHLEffects[n];
+                      if (theEffect.name === "Rect Hash") {
+                        hashFound = true;
+                      }
+                    }
+                    if (!hashFound) {
+                      disp.append("<li id='annotation-selected' class='annotation-item white'></li>");
+                      dispElement = $("#annotation-selected");
+                      dispElement.append("<div class='clean-name'>Selected Highlight</div> <div class='highlight-text'>Layer name: \"" + ($('body').data().selectedLayers[0].name) + "\"</div>");
+                      return dispElement.append("<div class='action-buttons'> <div class='button-group'> <div class='delete'></div> </div> <div class='button-group'> <div class='add-line'></div> <div class='remove-line'></div> </div> <div class='button-group'> <div class='split-highlight'></div> </div> <div class='button-group'> <div class='unlink'></div> </div> </div>");
+                    }
                   }
                 }
               },

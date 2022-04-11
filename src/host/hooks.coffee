@@ -253,86 +253,89 @@ try
     return "undefined" unless activeComp?
     try
       if activeComp? and activeComp instanceof CompItem
-        compType = activeComp.simpleReflection().class
+        if activeComp.simpleReflection?
+          compType = activeComp.simpleReflection().class
 
-        if compType is "NFPartComp"
-          # check for active page and PDF
-          activePage = null
-          allLayers = activeComp.layers
-          unless allLayers.length is 0
-            prevLayer = null
-            for i in [1..(allLayers.length)]
-              thisLayer = allLayers[i]
-              if thisLayer.source?.name.includes("NFPage") and not thisLayer.name.includes('[ref]') and thisLayer.opacity.value isnt 0 and thisLayer.inPoint <= activeComp.time <= thisLayer.outPoint
-                if prevLayer?
-                  if thisLayer.index < prevLayer.index
+          if compType is "NFPartComp"
+            # check for active page and PDF
+            activePage = null
+            allLayers = activeComp.layers
+            unless allLayers.length is 0
+              prevLayer = null
+              for i in [1..(allLayers.length)]
+                thisLayer = allLayers[i]
+                if thisLayer.source?.name.includes("NFPage") and not thisLayer.name.includes('[ref]') and thisLayer.opacity.value isnt 0 and thisLayer.inPoint <= activeComp.time <= thisLayer.outPoint
+                  if prevLayer?
+                    if thisLayer.index < prevLayer.index
+                      activePage = thisLayer
+                  else
                     activePage = thisLayer
-                else
-                  activePage = thisLayer
-                prevLayer = thisLayer
+                  prevLayer = thisLayer
 
-          if activePage?
-            model.activePDF = activePage.source.getPDFNumber()
-            model.activePage = activePage.simpleReflection()
-        else if compType is "NFPageComp"
-          allLayers = activeComp.layers
-          highlightLayers = []
-          unless allLayers.length is 0
-            prevLayer = null
-            for i in [1..(allLayers.length)]
-              thisLayer = allLayers[i]
-              if thisLayer instanceof ShapeLayer
-                if thisLayer.property("Effects").property("AV Highlighter")?
-                  if thisLayer.property("Effects").property("Rect Hash")?
+            if activePage?
+              model.activePDF = activePage.source.getPDFNumber()
+              model.activePage = activePage.simpleReflection()
+          else if compType is "NFPageComp"
+            allLayers = activeComp.layers
+            highlightLayers = []
+            unless allLayers.length is 0
+              prevLayer = null
+              for i in [1..(allLayers.length)]
+                thisLayer = allLayers[i]
+                if thisLayer instanceof ShapeLayer
+                  if thisLayer.property("Effects").property("AV Highlighter")?
+                    # if thisLayer.property("Effects").property("Rect Hash")?
                     highlightLayers.push
                       name: thisLayer.name
                       index: thisLayer.index
-                      rectHash: thisLayer.property("Effects").property("Rect Hash").property("Point").value
-          model.highlightLayers = highlightLayers
+                      rectHash: thisLayer.property("Effects").property("Rect Hash")?.property("Point").value
+            model.highlightLayers = highlightLayers
 
-        selectedAVLayers = activeComp.selectedLayers
-        if selectedAVLayers.length is 0
-          layerType = "no-layer"
-        else if selectedAVLayers.length is 1
-          selectedLayer = selectedAVLayers[0]
-          singleSelectedLayerSimplified = selectedLayer.simpleReflection()
-          layerType = singleSelectedLayerSimplified.class
+          selectedAVLayers = activeComp.selectedLayers
+          if selectedAVLayers.length is 0
+            layerType = "no-layer"
+          else if selectedAVLayers.length is 1
+            selectedLayer = selectedAVLayers[0]
+            singleSelectedLayerSimplified = selectedLayer.simpleReflection()
+            layerType = singleSelectedLayerSimplified.class
 
-          #Add the FX
-          model.effects = []
-          # Using aequery for the first time
-          aeqLayer = new aeq.Layer selectedLayer
-          aeqLayer.forEachEffect (e, i) =>
-            if e.matchName.includes("AV_")
-              # $.bp()
-              model.effects.push
-                name: e.name
-                matchName: e.matchName
-                properties: {}
-              effectIndex = model.effects.length - 1
-              e.forEach (prop) =>
-                model.effects[effectIndex].properties[prop.name] =
-                  value: prop.value
+            #Add the FX
+            model.effects = []
+            # Using aequery for the first time
+            aeqLayer = new aeq.Layer selectedLayer
+            aeqLayer.forEachEffect (e, i) =>
+              if e.matchName.includes("AV_") or e.name.includes("Split Point") or e.name.includes("Rect Hash")
+                # $.bp()
+                model.effects.push
+                  name: e.name
+                  matchName: e.matchName
+                  properties: {}
+                effectIndex = model.effects.length - 1
+                e.forEach (prop) =>
+                  model.effects[effectIndex].properties[prop.name] =
+                    value: prop.value
 
-        else layerType = "multiple-layers"
+          else layerType = "multiple-layers"
 
-        # Selected Layer Names
-        model.selectedLayers = []
-        if singleSelectedLayerSimplified?
-          model.selectedLayers.push singleSelectedLayerSimplified
-        else if selectedAVLayers.length > 0
-          for i in [0..(selectedAVLayers.length-1)]
-            simpLayer = selectedAVLayers[i].simpleReflection()
-            model.selectedLayers.push simpLayer
+          # Selected Layer Names
+          model.selectedLayers = []
+          if singleSelectedLayerSimplified?
+            model.selectedLayers.push singleSelectedLayerSimplified
+          else if selectedAVLayers.length > 0
+            for i in [0..(selectedAVLayers.length-1)]
+              simpLayer = selectedAVLayers[i].simpleReflection()
+              model.selectedLayers.push simpLayer
 
-        model.bodyClass = "#{layerType} #{compType}"
+          model.bodyClass = "#{layerType} #{compType}"
+        else
+          return new Error "Cannot get polling data — the active comp doesn't have a simpleReflection method"
 
       else
         model.bodyClass = "no-comp"
 
       return JSON.stringify model
     catch e
-      alert "Error calling hook `getPollingData`: #{e.message}"
+      return new Error "Cannot get polling data. Failed with message: #{e.message}"
 
   getActivePageFile = ->
     activeComp = NFProject.activeComp()
