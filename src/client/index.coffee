@@ -27,7 +27,7 @@ $(document).ready ->
         var includePaths = $.includePath.split(';');
         for (i = 0, len = includePaths.length; i < len; i++) {
           path = includePaths[i];
-          if (path.indexOf('jl_pdf_manager') >= 0) {
+          if (path.indexOf('avo_toolkit') >= 0) {
             nfInclude = path;
           }
         }

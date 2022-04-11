@@ -8,7 +8,7 @@ $(document).ready(function() {
     }
     return csInterface.evalScript(hookString, callback);
   };
-  hook("var i, len, nfInclude, path, includePaths; var includePaths = $.includePath.split(';'); for (i = 0, len = includePaths.length; i < len; i++) { path = includePaths[i]; if (path.indexOf('jl_pdf_manager') >= 0) { nfInclude = path; } } $.evalFile(nfInclude + '/../lib/nf_tools/build/runtimeLibraries.jsx');");
+  hook("var i, len, nfInclude, path, includePaths; var includePaths = $.includePath.split(';'); for (i = 0, len = includePaths.length; i < len; i++) { path = includePaths[i]; if (path.indexOf('avo_toolkit') >= 0) { nfInclude = path; } } $.evalFile(nfInclude + '/../lib/nf_tools/build/runtimeLibraries.jsx');");
   latestAnnotationData = {};
   smartTimer = null;
   POLLING_INTERVAL = 1000;
