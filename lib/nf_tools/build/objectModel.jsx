@@ -3934,7 +3934,7 @@ NFCitationLayer = Object.assign(NFCitationLayer, {
   @throw Throws an error if citations.csv could not be found or empty
    */
   fetchCitation: function(thePDF) {
-    var citationArray, citationsFile, citeLine, citeLineItem, citeLineItemIdx, citeObj, i, j, len, newKey, newVal, pdfKey, ref, startColumn;
+    var citationArray, citationsFile, citeLine, citeLineItem, citeLineItemIdx, citeObj, e, error, finalCite, i, identifierSplit, inputCite, j, journalName, k, len, len1, newKey, newVal, pdfKey, ref, sentence, sentenceSplit, sentences, startColumn, trimmed;
     pdfKey = thePDF instanceof NFPDF ? thePDF.getPDFNumber() : thePDF;
     if (NFTools.testProjectFile("citations.csv")) {
       citationsFile = NFTools.readProjectFile("citations.csv", true);
@@ -3967,7 +3967,29 @@ NFCitationLayer = Object.assign(NFCitationLayer, {
         if (citeObj[pdfKey] === "") {
           throw new Error("Found a citation for PDF " + pdfKey + " but it's blank. Check citation file formatting.");
         }
-        return citeObj[pdfKey];
+        inputCite = citeObj[pdfKey];
+        if (inputCite.split(".").length > 3 && inputCite.indexOf(";") >= 0) {
+          try {
+            sentenceSplit = inputCite.split(".");
+            sentences = [];
+            for (k = 0, len1 = sentenceSplit.length; k < len1; k++) {
+              sentence = sentenceSplit[k];
+              trimmed = sentence.trim();
+              if (trimmed.length !== 0) {
+                sentences.push(trimmed);
+              }
+            }
+            identifierSplit = sentences[sentences.length - 1].split(";");
+            journalName = sentences[sentences.length - 2];
+            finalCite = journalName + ". " + identifierSplit[1] + ".";
+          } catch (error) {
+            e = error;
+            return "PDF " + pdfKey + " - appears to have a long-form citation that cannot be converted";
+          }
+        } else {
+          finalCite = inputCite;
+        }
+        return finalCite;
       } else {
         return "PDF " + pdfKey + " - NO CITATION FOUND IN FILE! FIX ME LATER.";
       }

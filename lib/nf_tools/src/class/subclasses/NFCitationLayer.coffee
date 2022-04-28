@@ -156,7 +156,28 @@ NFCitationLayer = Object.assign NFCitationLayer,
 
       if citeObj[pdfKey]?
         throw new Error "Found a citation for PDF #{pdfKey} but it's blank. Check citation file formatting." if citeObj[pdfKey] is ""
-        return citeObj[pdfKey]
+        # Check if we need to convert to an NF-Style citation
+        inputCite = citeObj[pdfKey]
+        if inputCite.split(".").length > 3 and inputCite.indexOf(";") >= 0
+          try
+            # Start with the three sentences
+            sentenceSplit = inputCite.split(".")
+
+            sentences = []
+            for sentence in sentenceSplit
+              trimmed = sentence.trim()
+              if trimmed.length isnt 0
+                sentences.push trimmed
+
+            # Last sentence should be the year and issue/volume/page
+            identifierSplit = sentences[sentences.length-1].split(";")
+            journalName = sentences[sentences.length-2]
+
+            finalCite = "#{journalName}. #{identifierSplit[1]}."
+          catch e
+            return "PDF #{pdfKey} - appears to have a long-form citation that cannot be converted"
+        else finalCite = inputCite
+        return finalCite
       else return "PDF #{pdfKey} - NO CITATION FOUND IN FILE! FIX ME LATER."
 
     if app.citationWarning isnt app.project.file.name
