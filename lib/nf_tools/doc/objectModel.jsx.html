@@ -716,6 +716,8 @@
             
                 <li class="parent  " data-name="NFComp#getTime"><a href="NFComp.html#getTime">getTime</a></li>
             
+                <li class="parent  " data-name="NFComp#greenscreenLayer"><a href="NFComp.html#greenscreenLayer">greenscreenLayer</a></li>
+            
                 <li class="parent  " data-name="NFComp#insertComp"><a href="NFComp.html#insertComp">insertComp</a></li>
             
                 <li class="parent  " data-name="NFComp#is"><a href="NFComp.html#is">is</a></li>
@@ -2004,6 +2006,8 @@
             
                 <li class="  " data-name="NFPageComp#getTime"><a href="NFPageComp.html#getTime">getTime</a></li>
             
+                <li class="  " data-name="NFPageComp#greenscreenLayer"><a href="NFPageComp.html#greenscreenLayer">greenscreenLayer</a></li>
+            
                 <li class="parent  " data-name="NFPageComp#highlights"><a href="NFPageComp.html#highlights">highlights</a></li>
             
                 <li class="parent  " data-name="NFPageComp#highlightWithName"><a href="NFPageComp.html#highlightWithName">highlightWithName</a></li>
@@ -2664,7 +2668,7 @@
             
                 <li class="  " data-name="NFPartComp#getTime"><a href="NFPartComp.html#getTime">getTime</a></li>
             
-                <li class="parent  " data-name="NFPartComp#greenscreenLayer"><a href="NFPartComp.html#greenscreenLayer">greenscreenLayer</a></li>
+                <li class="  " data-name="NFPartComp#greenscreenLayer"><a href="NFPartComp.html#greenscreenLayer">greenscreenLayer</a></li>
             
                 <li class="parent  " data-name="NFPartComp#groupFromPDF"><a href="NFPartComp.html#groupFromPDF">groupFromPDF</a></li>
             
@@ -3632,6 +3636,23 @@ NFComp = (function(superClass) {
       };
     })(this));
     return selectedPageLayers;
+  };
+
+
+  /**
+  Returns the greenscreen footage layer, or null if not found
+  @memberof NFComp
+  @returns {NFLayer | null} The greenscreen layer or null
+   */
+
+  NFComp.prototype.greenscreenLayer = function() {
+    var matchedLayers;
+    matchedLayers = this.searchLayers("greenscreen", false);
+    if (matchedLayers.count() === 1) {
+      return matchedLayers.get(0);
+    } else {
+      return null;
+    }
   };
 
 
@@ -4897,7 +4918,8 @@ NFLayer = (function(superClass) {
   @param {String} model.comment - the marker comment
   @param {float} [model.duration=0] - the duration
   @param {float} model.time - the time to add the marker
-  @throw Throws error if marker already exists at given time
+  @param {boolean} [model.overwrite=no] - if we should overwrite an existing marker
+  @throw Throws error if marker already exists at given time, unless override is set to true
   @returns {Property} The marker property
    */
 
@@ -4907,11 +4929,13 @@ NFLayer = (function(superClass) {
       throw new Error("Invalid properties for new marker");
     }
     markers = this.markers();
-    if (markers.numKeys > 0) {
-      nearestMarkerIdx = markers.nearestKeyIndex(model.time);
-      nearestMarkerTime = markers.keyTime(nearestMarkerIdx);
-      if (nearestMarkerTime === model.time) {
-        throw new Error("Already marker at this time");
+    if (!((model.overwrite != null) &amp;&amp; model.overwrite === true)) {
+      if (markers.numKeys > 0) {
+        nearestMarkerIdx = markers.nearestKeyIndex(model.time);
+        nearestMarkerTime = markers.keyTime(nearestMarkerIdx);
+        if (nearestMarkerTime === model.time) {
+          throw new Error("Already marker at this time");
+        }
       }
     }
     markerValue = new MarkerValue(model.comment);
@@ -7336,7 +7360,7 @@ NFCitationLayer = Object.assign(NFCitationLayer, {
   @throw Throws an error if citations.csv could not be found or empty
    */
   fetchCitation: function(thePDF) {
-    var citationArray, citationsFile, citeLine, citeLineItem, citeLineItemIdx, citeObj, i, j, len, newKey, newVal, pdfKey, ref, startColumn;
+    var citationArray, citationsFile, citeLine, citeLineItem, citeLineItemIdx, citeObj, e, error, finalCite, i, identifierSplit, inputCite, j, journalName, k, len, len1, newKey, newVal, pdfKey, ref, sentence, sentenceSplit, sentences, startColumn, trimmed;
     pdfKey = thePDF instanceof NFPDF ? thePDF.getPDFNumber() : thePDF;
     if (NFTools.testProjectFile("citations.csv")) {
       citationsFile = NFTools.readProjectFile("citations.csv", true);
@@ -7369,7 +7393,29 @@ NFCitationLayer = Object.assign(NFCitationLayer, {
         if (citeObj[pdfKey] === "") {
           throw new Error("Found a citation for PDF " + pdfKey + " but it's blank. Check citation file formatting.");
         }
-        return citeObj[pdfKey];
+        inputCite = citeObj[pdfKey];
+        if (inputCite.split(".").length > 3 &amp;&amp; inputCite.indexOf(";") >= 0) {
+          try {
+            sentenceSplit = inputCite.split(".");
+            sentences = [];
+            for (k = 0, len1 = sentenceSplit.length; k &lt; len1; k++) {
+              sentence = sentenceSplit[k];
+              trimmed = sentence.trim();
+              if (trimmed.length !== 0) {
+                sentences.push(trimmed);
+              }
+            }
+            identifierSplit = sentences[sentences.length - 1].split(";");
+            journalName = sentences[sentences.length - 2];
+            finalCite = journalName + ". " + identifierSplit[1] + ".";
+          } catch (error) {
+            e = error;
+            return "PDF " + pdfKey + " - appears to have a long-form citation that cannot be converted";
+          }
+        } else {
+          finalCite = inputCite;
+        }
+        return finalCite;
       } else {
         return "PDF " + pdfKey + " - NO CITATION FOUND IN FILE! FIX ME LATER.";
       }
@@ -11917,23 +11963,6 @@ NFPartComp = (function(superClass) {
     parentLayer = this.layerWithName(pdf.getName());
     if (parentLayer != null) {
       return new NFPaperLayerGroup(parentLayer);
-    } else {
-      return null;
-    }
-  };
-
-
-  /**
-  Returns the greenscreen footage layer, or null if not found
-  @memberof NFPartComp
-  @returns {NFLayer | null} The greenscreen layer or null
-   */
-
-  NFPartComp.prototype.greenscreenLayer = function() {
-    var matchedLayers;
-    matchedLayers = this.searchLayers("greenscreen", false);
-    if (matchedLayers.count() === 1) {
-      return matchedLayers.get(0);
     } else {
       return null;
     }

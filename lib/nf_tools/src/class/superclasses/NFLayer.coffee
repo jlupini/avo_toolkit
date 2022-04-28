@@ -550,7 +550,8 @@ class NFLayer extends NFObject
   @param {String} model.comment - the marker comment
   @param {float} [model.duration=0] - the duration
   @param {float} model.time - the time to add the marker
-  @throw Throws error if marker already exists at given time
+  @param {boolean} [model.overwrite=no] - if we should overwrite an existing marker
+  @throw Throws error if marker already exists at given time, unless override is set to true
   @returns {Property} The marker property
   ###
   addMarker: (model) ->
@@ -560,10 +561,11 @@ class NFLayer extends NFObject
     markers = @markers()
 
     # Check time for existing marker
-    if markers.numKeys > 0
-      nearestMarkerIdx = markers.nearestKeyIndex model.time
-      nearestMarkerTime = markers.keyTime nearestMarkerIdx
-      throw new Error "Already marker at this time" if nearestMarkerTime is model.time
+    unless model.overwrite? and model.overwrite is yes
+      if markers.numKeys > 0
+        nearestMarkerIdx = markers.nearestKeyIndex model.time
+        nearestMarkerTime = markers.keyTime nearestMarkerIdx
+        throw new Error "Already marker at this time" if nearestMarkerTime is model.time
 
     markerValue = new MarkerValue(model.comment)
     markerValue.duration = model.duration if model.duration?

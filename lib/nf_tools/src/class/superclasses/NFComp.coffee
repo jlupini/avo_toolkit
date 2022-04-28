@@ -119,6 +119,19 @@ class NFComp extends NFObject
     return selectedPageLayers
 
   ###*
+  Returns the greenscreen footage layer, or null if not found
+  @memberof NFComp
+  @returns {NFLayer | null} The greenscreen layer or null
+  ###
+  greenscreenLayer: ->
+    matchedLayers = @searchLayers "greenscreen", no
+
+    if matchedLayers.count() is 1
+      return matchedLayers.get 0
+    else
+      return null
+
+  ###*
   Gets the active NFLayers at a time (or current time by default).
   @memberof NFComp
   @param {float} [time] - the time to check at, or the current time by default

@@ -86,7 +86,10 @@ toolRegistry = {
           project_folder = new Folder(app.project.file.parent.fsName);
           bashFile = new File(start_folder.fsName + '/lib/stt/systemcall.sh');
           sttFolder = File(start_folder.fsName + '/lib/stt/');
-          audioLayer = NFProject.mainComp().audioLayers().getBottommostLayer();
+          audioLayer = NFProject.mainComp().greenscreenLayer();
+          if (audioLayer == null) {
+            audioLayer = NFProject.allPartComps()[0].greenscreenLayer();
+          }
           audioFile = audioLayer.$.source.file;
           cmdLineString = "sh '" + bashFile.fsName + "' '" + sttFolder.fsName + "' '" + audioFile.fsName + "' '" + project_folder.fsName + "'";
           termfile = new File(File($.fileName).parent.fsName + '/command.term');
@@ -98,6 +101,55 @@ toolRegistry = {
           if (shouldContinue) {
             return termfile.execute();
           }
+        }
+      },
+      addTranscriptLayer: {
+        name: "Add Transcript Layer",
+        callback: function() {
+          var existingComment, i, j, len, markers, maxWordsPerMarker, minFrequency, nearestMarkerIdx, nearestMarkerTime, results, skipNext, theTime, theWord, word, wordCount;
+          wordLayer.$.guideLayer = true;
+          wordLayer.$.enabled = false;
+          markers = wordLayer.markers();
+          maxWordsPerMarker = 3;
+          minFrequency = 1;
+          skipNext = false;
+          results = [];
+          for (i = j = 0, len = instructionArray.length; j < len; i = ++j) {
+            word = instructionArray[i];
+            if (i !== 0) {
+              theTime = parseFloat(word[0]);
+              if (!isNaN(theTime)) {
+                theWord = word[1];
+                if (markers.numKeys > 0) {
+                  nearestMarkerIdx = markers.nearestKeyIndex(theTime);
+                  nearestMarkerTime = markers.keyTime(nearestMarkerIdx);
+                  if (nearestMarkerTime === theTime || theTime - nearestMarkerTime < minFrequency) {
+                    theTime = nearestMarkerTime;
+                    existingComment = markers.keyValue(nearestMarkerIdx).comment;
+                    wordCount = existingComment.split(' ').length;
+                    if (wordCount === maxWordsPerMarker) {
+                      theWord = existingComment;
+                      if (!(theWord.indexOf("...") >= 0)) {
+                        theWord += "...";
+                      }
+                    } else if (wordCount < maxWordsPerMarker) {
+                      theWord = existingComment + " " + theWord;
+                    }
+                  }
+                }
+                results.push(wordLayer.addMarker({
+                  time: theTime,
+                  comment: theWord,
+                  overwrite: true
+                }));
+              } else {
+                results.push(void 0);
+              }
+            } else {
+              results.push(void 0);
+            }
+          }
+          return results;
         }
       },
       importInstructions: {

@@ -70,7 +70,7 @@ def main(projectPath):
     files = listdir("segments")
     files.sort()
 
-    CREDENTIALS = json.load(open("api_key/NutritionFacts-50bf881b738b.json"))
+    CREDENTIALS = json.load(open("api_key/nutritionfacts-213521-9b55a1fc1244.json"))
     CREDENTIALS = json.dumps(CREDENTIALS)
 
     print(title)

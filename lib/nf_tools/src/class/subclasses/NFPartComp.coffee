@@ -1208,20 +1208,6 @@ class NFPartComp extends NFComp
     else
       return null
 
-  ###*
-  Returns the greenscreen footage layer, or null if not found
-  @memberof NFPartComp
-  @returns {NFLayer | null} The greenscreen layer or null
-  ###
-  greenscreenLayer: ->
-    matchedLayers = @searchLayers "greenscreen", no
-
-    if matchedLayers.count() is 1
-      return matchedLayers.get 0
-    else
-      return null
-
-
 
   ###*
   Returns an NFPageLayerCollection of NFPageLayers in this comp that

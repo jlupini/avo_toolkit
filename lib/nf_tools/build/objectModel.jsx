@@ -234,6 +234,23 @@ NFComp = (function(superClass) {
 
 
   /**
+  Returns the greenscreen footage layer, or null if not found
+  @memberof NFComp
+  @returns {NFLayer | null} The greenscreen layer or null
+   */
+
+  NFComp.prototype.greenscreenLayer = function() {
+    var matchedLayers;
+    matchedLayers = this.searchLayers("greenscreen", false);
+    if (matchedLayers.count() === 1) {
+      return matchedLayers.get(0);
+    } else {
+      return null;
+    }
+  };
+
+
+  /**
   Gets the active NFLayers at a time (or current time by default).
   @memberof NFComp
   @param {float} [time] - the time to check at, or the current time by default
@@ -1495,7 +1512,8 @@ NFLayer = (function(superClass) {
   @param {String} model.comment - the marker comment
   @param {float} [model.duration=0] - the duration
   @param {float} model.time - the time to add the marker
-  @throw Throws error if marker already exists at given time
+  @param {boolean} [model.overwrite=no] - if we should overwrite an existing marker
+  @throw Throws error if marker already exists at given time, unless override is set to true
   @returns {Property} The marker property
    */
 
@@ -1505,11 +1523,13 @@ NFLayer = (function(superClass) {
       throw new Error("Invalid properties for new marker");
     }
     markers = this.markers();
-    if (markers.numKeys > 0) {
-      nearestMarkerIdx = markers.nearestKeyIndex(model.time);
-      nearestMarkerTime = markers.keyTime(nearestMarkerIdx);
-      if (nearestMarkerTime === model.time) {
-        throw new Error("Already marker at this time");
+    if (!((model.overwrite != null) && model.overwrite === true)) {
+      if (markers.numKeys > 0) {
+        nearestMarkerIdx = markers.nearestKeyIndex(model.time);
+        nearestMarkerTime = markers.keyTime(nearestMarkerIdx);
+        if (nearestMarkerTime === model.time) {
+          throw new Error("Already marker at this time");
+        }
       }
     }
     markerValue = new MarkerValue(model.comment);
@@ -8537,23 +8557,6 @@ NFPartComp = (function(superClass) {
     parentLayer = this.layerWithName(pdf.getName());
     if (parentLayer != null) {
       return new NFPaperLayerGroup(parentLayer);
-    } else {
-      return null;
-    }
-  };
-
-
-  /**
-  Returns the greenscreen footage layer, or null if not found
-  @memberof NFPartComp
-  @returns {NFLayer | null} The greenscreen layer or null
-   */
-
-  NFPartComp.prototype.greenscreenLayer = function() {
-    var matchedLayers;
-    matchedLayers = this.searchLayers("greenscreen", false);
-    if (matchedLayers.count() === 1) {
-      return matchedLayers.get(0);
     } else {
       return null;
     }
