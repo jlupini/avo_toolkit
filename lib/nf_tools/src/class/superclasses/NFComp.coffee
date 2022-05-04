@@ -312,7 +312,7 @@ class NFComp extends NFObject
     # Setup AV Highlighter
     highlightProperty = highlightLayer.addEffect('AV_Highlighter')
     highlightProperty.property("Spacing").setValue paddedLineHeight
-    highlightProperty.property("Thickness").setValue paddedLineHeight
+    highlightProperty.property("Thickness").setValue paddedLineHeight + 0.25
     yOffset = if model.lines is 1 then paddedLineHeight / 2 - yPadding else paddedLineHeight / 2 - yPadding * 2
     highlightProperty.property("Offset").setValue [0, yOffset]
     highlightProperty.property("Highlight Colour").setValue model.color.idx

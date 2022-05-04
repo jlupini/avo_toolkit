@@ -201,7 +201,7 @@ splitHighlightAtPoint = (splitterPoint) ->
 	highlighterEffect = _.selectedLayer.property("Effects").property("AV Highlighter")
 	highlighterThickness = highlighterEffect.property("Thickness")
 	highlighterSpacing = highlighterEffect.property("Spacing")
-	highlighterThickness.setValue highlighterSpacing.value if highlighterThickness.value > highlighterSpacing.value
+	highlighterThickness.setValue highlighterSpacing.value + 0.25 if highlighterThickness.value > highlighterSpacing.value
 
 
 	originalHighlightLayer = _.selectedLayer

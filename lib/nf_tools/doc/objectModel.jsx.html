@@ -3924,7 +3924,7 @@ NFComp = (function(superClass) {
     highlightLayer.$.blendingMode = BlendingMode.MULTIPLY;
     highlightProperty = highlightLayer.addEffect('AV_Highlighter');
     highlightProperty.property("Spacing").setValue(paddedLineHeight);
-    highlightProperty.property("Thickness").setValue(paddedLineHeight);
+    highlightProperty.property("Thickness").setValue(paddedLineHeight + 0.25);
     yOffset = model.lines === 1 ? paddedLineHeight / 2 - yPadding : paddedLineHeight / 2 - yPadding * 2;
     highlightProperty.property("Offset").setValue([0, yOffset]);
     highlightProperty.property("Highlight Colour").setValue(model.color.idx);
